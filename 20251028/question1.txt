@@ -1,0 +1,6 @@
+Address of ch: 0x7ffeaee82527, Value: X
+Address of arr: 0x7ffeaee82530, arr[0]: 10
+Address of arr[1]: 0x7ffeaee82534, Value: 20
+Address of arr[2]: 0x7ffeaee82538, Value: 30
+Address of num: 0x7ffeaee82528, Value: 100
+Address of f: 0x7ffeaee8252c, Value: 3.140000
