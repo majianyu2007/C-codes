@@ -1,8 +1,17 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-unsigned long long hex2dec(char *s) {
-    unsigned long long val = 0;
+long long hex2dec(char *s) {
+    bool negative = false;
     int i = 0;
+    
+    // 检查是否有负号
+    if (s[0] == '-') {
+        negative = true;
+        i = 1;
+    }
+    
+    unsigned long long val = 0;
     while (s[i] != '\0') {
         val = val * 16;
         char c = s[i];
@@ -14,7 +23,8 @@ unsigned long long hex2dec(char *s) {
             val += c - 'a' + 10;
         i++;
     }
-    return val;
+    
+    return negative ? -(long long)val : (long long)val;
 }
 
 void print_oct(long long x) {
@@ -50,8 +60,8 @@ int main() {
         char s[40];
         scanf("%s", s);
 
-        // 找到操作符
-        int i = 0;
+        // 找到操作符（从第二个字符开始查找，避免把负号当作运算符）
+        int i = (s[0] == '-') ? 1 : 0;  // 如果开头是负号，从第二个字符开始
         int op_pos = -1;
         char op = 0;
 
@@ -79,16 +89,16 @@ int main() {
             b[p++] = s[j];
         b[p] = '\0';
 
-        // 转十进制
-        unsigned long long A = hex2dec(a);
-        unsigned long long B = hex2dec(b);
+        // 转十进制（现在支持负数）
+        long long A = hex2dec(a);
+        long long B = hex2dec(b);
 
         // 计算
         long long result;
         if (op == '+')
-            result = (long long)A + (long long)B;
+            result = A + B;
         else
-            result = (long long)A - (long long)B;
+            result = A - B;
 
         // 输出八进制
         print_oct(result);
