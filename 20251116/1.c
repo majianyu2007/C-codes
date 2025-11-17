@@ -2,7 +2,7 @@
 #include <math.h>
 
 int main() {
-    int count[3] = {0, 0, 0}; // 计数三个元素
+    int count[3] = {0, 0, 0};
     int ch;
 
     while ((ch = getchar()) != '\n') {
@@ -25,7 +25,7 @@ int main() {
     }
 
     int total = count[0] + count[1] + count[2];
-    if (total == 0) {  // 没有输入有效字符时，进行异常处理
+    if (total == 0) {
         printf("0.000\n");
         return 0;
     }
