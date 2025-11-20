@@ -72,10 +72,10 @@ fi
 # ================================
 #   检查是否有改动
 # ================================
-if git diff --quiet && git diff --cached --quiet; then
-    echo -e "${YELLOW}⚠️ 没有检测到修改，结束。${RESET}"
-    exit 0
-fi
+#if git diff --quiet && git diff --cached --quiet; then
+#    echo -e "${YELLOW}⚠️ 没有检测到修改，结束。${RESET}"
+#    exit 0
+#fi
 
 # ================================
 #   获取 commit message
