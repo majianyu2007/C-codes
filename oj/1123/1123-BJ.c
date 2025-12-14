@@ -5,24 +5,21 @@ int CountLine(FILE *fp, int n) {
     if (fp == NULL || n <= 0) {
         return 0;
     }
-    
-    // Key press counts for each letter a-z
-    // abc(2) def(3) ghi(4) jkl(5) mno(6) pqrs(7) tuv(8) wxyz(9)
+    rewind(fp);
     int keyPresses[26] = {
-        1, 2, 3,        // a, b, c -> 2
-        1, 2, 3,        // d, e, f -> 3
-        1, 2, 3,        // g, h, i -> 4
-        1, 2, 3,        // j, k, l -> 5
-        1, 2, 3,        // m, n, o -> 6
-        1, 2, 3, 4,     // p, q, r, s -> 7
-        1, 2, 3,        // t, u, v -> 8
-        1, 2, 3, 4      // w, x, y, z -> 9
+        1, 2, 3,        // a, b, c - 2
+        1, 2, 3,        // d, e, f - 3
+        1, 2, 3,        // g, h, i - 4
+        1, 2, 3,        // j, k, l - 5
+        1, 2, 3,        // m, n, o - 6
+        1, 2, 3, 4,     // p, q, r, s - 7
+        1, 2, 3,        // t, u, v - 8
+        1, 2, 3, 4      // w, x, y, z - 9
     };
     
     char line[201];
     int currentLine = 0;
     
-    // Read lines until we reach line n
     while (fgets(line, sizeof(line), fp) != NULL) {
         currentLine++;
         if (currentLine == n) {
@@ -31,15 +28,12 @@ int CountLine(FILE *fp, int n) {
                 if (line[i] >= 'a' && line[i] <= 'z') {
                     count += keyPresses[line[i] - 'a'];
                 } else if (line[i] == ' ') {
-                    count += 1;  // Space requires 1 key press
+                    count += 1;
                 }
-                // Ignore all other characters (uppercase, digits, symbols, \n, \t, etc.)
             }
             return count;
         }
     }
-    
-    // Line n doesn't exist
     return 0;
 }
 
@@ -47,7 +41,7 @@ int main() {
     // 创建测试文件
     FILE *fp = fopen("test.txt", "w");
     if (fp != NULL) {
-        fprintf(fp, "hello world\n");
+        fprintf(fp, "i have a dream\n");
         fprintf(fp, "abc def\n");
         fprintf(fp, "test message\n");
         fclose(fp);

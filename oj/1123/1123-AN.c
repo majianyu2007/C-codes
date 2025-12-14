@@ -3,12 +3,11 @@
 
 typedef struct Node *PtrToNode;
 struct Node {
-    int Data; /* 存储结点数据 */
-    PtrToNode Next; /* 指向下一个结点的指针 */
+    int Data; 
+    PtrToNode Next;
 };
-typedef PtrToNode List; /* 定义单链表类型 */
+typedef PtrToNode List;
 
-// 计算阶乘的辅助函数
 int Factorial(int n) {
     if (n == 0 || n == 1) {
         return 1;
@@ -20,7 +19,6 @@ int Factorial(int n) {
     return result;
 }
 
-// 求单向链表L中所有结点的Data域的阶乘和
 int FactorialSum(List L) {
     int sum = 0;
     PtrToNode current = L;

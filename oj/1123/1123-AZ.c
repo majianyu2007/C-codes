@@ -8,9 +8,13 @@ int main() {
         return 0;
     }
     
+    if (input[0] == '0') {
+        printf("Invalid input\n");
+        return 0;
+    }
+
     int len = strlen(input);
-    
-    // Check if input is valid (1-7 digits, all digits, no leading zero for multi-digit)
+
     if (len == 0 || len > 7) {
         printf("Invalid input\n");
         return 0;
@@ -23,19 +27,16 @@ int main() {
         }
     }
     
-    // Check for leading zero (except for single digit "0")
     if (len > 1 && input[0] == '0') {
         printf("Invalid input\n");
         return 0;
     }
     
-    // Count occurrences of each digit
     int count[10] = {0};
     for (int i = 0; i < len; i++) {
         count[input[i] - '0']++;
     }
     
-    // Find repeated digits
     int repeated[10];
     int repeatedCount = 0;
     for (int i = 0; i < 10; i++) {

@@ -7,29 +7,39 @@ int delSubStr(char *src, char *sub, char *result) {
     int srcLen = strlen(src);
     int resultIndex = 0;
     
-    if (subLen == 0) {
+    if (subLen == 0) 
+    {
         strcpy(result, src);
         return 0;
     }
     
     int i = 0;
-    while (i < srcLen) {
+    while (i < srcLen) 
+    {
         int match = 1;
-        if (i + subLen <= srcLen) {
-            for (int j = 0; j < subLen; j++) {
-                if (src[i + j] != sub[j]) {
+        if (i + subLen <= srcLen) 
+        {
+            for (int j = 0; j < subLen; j++) 
+            {
+                if (src[i + j] != sub[j]) 
+                {
                     match = 0;
                     break;
                 }
             }
-        } else {
+        }
+        else 
+        {
             match = 0;
         }
         
-        if (match) {
+        if (match) 
+        {
             count++;
             i += subLen;
-        } else {
+        } 
+        else 
+        {
             result[resultIndex++] = src[i];
             i++;
         }

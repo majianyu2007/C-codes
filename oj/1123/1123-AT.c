@@ -21,7 +21,6 @@ int CheckPhoneNum(char *num) {
         }
     }
     
-    // 减号数量必须是1或2
     if (dashCount < 1 || dashCount > 2) {
         return 1;
     }
@@ -29,14 +28,14 @@ int CheckPhoneNum(char *num) {
     int areaCodeLen, prefixStart, prefixLen, validNumStart, validNumLen;
     
     if (dashCount == 1) {
-        // 没有地区码，格式：前缀-有效号码
+        // 没有地区码
         areaCodeLen = 0;
         prefixStart = 0;
         prefixLen = dashPos[0];
         validNumStart = dashPos[0] + 1;
         validNumLen = len - validNumStart;
     } else {
-        // 有地区码，格式：地区码-前缀-有效号码
+        // 有地区码
         areaCodeLen = dashPos[0];
         prefixStart = dashPos[0] + 1;
         prefixLen = dashPos[1] - dashPos[0] - 1;
@@ -44,7 +43,7 @@ int CheckPhoneNum(char *num) {
         validNumLen = len - validNumStart;
     }
     
-    // 检查地区码：0-4位数字
+    // 检查地区码
     if (areaCodeLen < 0 || areaCodeLen > 4) {
         return 1;
     }
@@ -54,7 +53,7 @@ int CheckPhoneNum(char *num) {
         }
     }
     
-    // 检查前缀：非0开头的3位数字
+    // 检查前缀
     if (prefixLen != 3) {
         return 1;
     }
@@ -67,7 +66,7 @@ int CheckPhoneNum(char *num) {
         }
     }
     
-    // 检查有效号码：4位数字
+    // 检查有效号码
     if (validNumLen != 4) {
         return 1;
     }

@@ -14,7 +14,7 @@ int canBeat(const char *hand, const char *played) {
     int playedLen = strlen(played);
     
     for (int i = 0; hand[i]; i++) {
-        handCount[hand[i] - '0']++;
+        handCount[hand[i] - '0']++; // 每个数的牌数
     }
     
     if (playedLen == 5 && isStraight(played)) {

@@ -4,7 +4,6 @@ void scheduler(int task[], int n, int system_task[], int user_task[]) {
     int sys_count = 0;
     int user_count = 0;
     
-    // First pass: collect valid tasks into their respective arrays
     int sys_priorities[n], sys_indices[n];
     int user_priorities[n], user_indices[n];
     
@@ -18,10 +17,8 @@ void scheduler(int task[], int n, int system_task[], int user_task[]) {
             user_indices[user_count] = i;
             user_count++;
         }
-        // Priority > 255 is invalid, skip
     }
-    
-    // Sort system tasks by priority (stable sort - bubble sort)
+
     for (int i = 0; i < sys_count - 1; i++) {
         for (int j = 0; j < sys_count - 1 - i; j++) {
             if (sys_priorities[j] > sys_priorities[j + 1]) {
@@ -36,7 +33,6 @@ void scheduler(int task[], int n, int system_task[], int user_task[]) {
         }
     }
     
-    // Sort user tasks by priority (stable sort - bubble sort)
     for (int i = 0; i < user_count - 1; i++) {
         for (int j = 0; j < user_count - 1 - i; j++) {
             if (user_priorities[j] > user_priorities[j + 1]) {
@@ -51,7 +47,6 @@ void scheduler(int task[], int n, int system_task[], int user_task[]) {
         }
     }
     
-    // Copy to output arrays
     for (int i = 0; i < sys_count; i++) {
         system_task[i] = sys_indices[i];
     }
