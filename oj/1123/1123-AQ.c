@@ -2,12 +2,12 @@
 #include <string.h>
 
 typedef struct {
-    int lineno;     // 文本行在文件中的行号
-    int Uppers;     // 该行中大写字母字符的个数
-    int Lowers;     // 该行中小写字母字符的个数
-    int Numbers;    // 该行中数字字符的个数
-    int Separators; // 该行中英文分隔字符的个数（含空格、制表符、逗号、句号、分号等5种分隔符）
-    int Others;     // 该行中除以上情形外其他字符的个数
+    int lineno;
+    int Uppers;
+    int Lowers;
+    int Numbers;
+    int Separators;
+    int Others;
 } LineInfo, *PLineInfo;
 
 int GetLineInfo(FILE *fp, PLineInfo li) {
@@ -15,28 +15,23 @@ int GetLineInfo(FILE *fp, PLineInfo li) {
         return 1;
     }
     
-    // 初始化统计结果
     li->Uppers = 0;
     li->Lowers = 0;
     li->Numbers = 0;
     li->Separators = 0;
     li->Others = 0;
     
-    // 定位到文件开头
     rewind(fp);
     
     char line[256];
     int currentLine = 0;
     
-    // 读取到指定行
     while (fgets(line, sizeof(line), fp) != NULL) {
         currentLine++;
         if (currentLine == li->lineno) {
-            // 统计该行字符
             for (int i = 0; line[i] != '\0'; i++) {
                 char c = line[i];
                 if (c == '\n') {
-                    // 换行符不做任何统计
                     continue;
                 } else if (c >= 'A' && c <= 'Z') {
                     li->Uppers++;
@@ -53,8 +48,6 @@ int GetLineInfo(FILE *fp, PLineInfo li) {
             return 0;
         }
     }
-    
-    // 指定行号不存在
     return 1;
 }
 
