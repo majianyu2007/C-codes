@@ -1,15 +1,5 @@
 #include "LinkedList.h"
 
-void PrintIntArr(int *arr, int len)
-{
-    printf("[");
-    for (int i = 0; i < len; i++)
-    {
-        if (i > 0) printf(", ");
-        printf("%d", arr[i]);
-    }
-    printf("]");
-}
 
 void InitLinkedList(struct Node *head)
 {
@@ -27,57 +17,59 @@ void HeadInsert(struct Node *head, int data)
 
 int HeadDelete(struct Node *head, int *data)
 {
-    if (head->next == NULL)
+    if(head->next == NULL)
         return 0;
-    struct Node *temp = head->next;
-    *data = temp->data;
-    head->next = temp->next;
-    free(temp);
-    return 1;
-}
-
-void TailInsert(struct Node *head, int data)
-{
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->data = data;
-    newNode->next = NULL;
-    
-    struct Node *current = head;
-    while (current->next != NULL)
-    {
-        current = current->next;
-    }
-    current->next = newNode;
-}
-
-int TailDelete(struct Node *head, int *data)
-{
-    if (head->next == NULL)
-        return 0;
-    
-    struct Node *current = head;
-    while (current->next->next != NULL)
-    {
-        current = current->next;
-    }
-    struct Node *temp = current->next;
-    *data = temp->data;
-    current->next = NULL;
-    free(temp);
+    struct Node *deleted = head->next;
+    head->next = deleted->next; // head->next = head->next->next;
+    deleted->next = NULL;
+    *data = deleted->data;
+    free(deleted);
     return 1;
 }
 
 void PrintLinkedList(struct Node *head)
 {
-    printf("[");
-    struct Node *current = head->next;
-    int first = 1;
-    while (current != NULL)
+    if(head->next == NULL)
+        return;
+    struct Node *p = head->next;
+    while(p != NULL)
     {
-        if (!first) printf(", ");
-        printf("%d", current->data);
-        current = current->next;
-        first = 0;
+        printf("%d ", p->data);
+        p = p->next;
     }
-    printf("]");
+    putchar('\n');
 }
+
+void TailInsert(struct Node *head, int data)
+{
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode->data;
+    newNode->next = NULL;
+
+    struct Node *p = head;
+    while(p->next != NULL)
+        p = p->next;
+    p->next = newNode;
+}
+
+int TailDelete(struct Node *head, int *data)
+{
+    if(head->next == NULL)
+        return 0;
+    struct Node *p = head;
+    while(p->next->next != NULL)
+        p = p->next;
+    struct Node *deleted = p->next;
+    p->next = NULL;
+    *data = deleted->data;
+    return 1;
+}
+
+
+
+
+
+
+
+
+
