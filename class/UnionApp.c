@@ -3,7 +3,7 @@
 union DoubleChar
 {
     double d;
-    char str[8];
+    unsigned char str[8];
 };
 
 int main()

@@ -37,9 +37,20 @@ int main()
 
     putchar('\n');
 
-//    // 2. 测试尾插入、尾删除、遍历输出
-//    printf("%d. 用尾插入建立长度为10的整型链表100:100:1000，\n\t输出后用尾删除清空释放\n", sect_count++);
-//    putchar('\n');
+    // 2. 测试尾插入、尾删除、遍历输出
+    printf("%d. 用尾插入建立长度为10的整型链表100:100:1000，\n\t输出后用尾删除清空释放\n", sect_count++);
+    struct Node *LinkedList2 = (struct Node *)malloc(sizeof(struct Node));
+    InitLinkedList(LinkedList2);
+    for(int i = 100; i <= 1000; i += 100)
+        TailInsert(LinkedList2, i);
+    PrintLinkedList(LinkedList2);
+    while(TailDelete(LinkedList2, &data))
+    {
+        printf("删除了: %d\n", data);
+    }
+    free(LinkedList2);
+
+    putchar('\n');
 
     return 0;
 }

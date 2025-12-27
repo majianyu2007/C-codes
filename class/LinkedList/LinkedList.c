@@ -43,7 +43,7 @@ void PrintLinkedList(struct Node *head)
 void TailInsert(struct Node *head, int data)
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->data;
+    newNode->data = data;
     newNode->next = NULL;
 
     struct Node *p = head;
