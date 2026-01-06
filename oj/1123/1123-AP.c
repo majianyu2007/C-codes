@@ -7,7 +7,7 @@ int main() {
     FILE *fp;
     int i, j, k, len;
 
-   fgets(str, sizeof(str), stdin);
+    fgets(str, sizeof(str), stdin);
     len = strlen(str);
     while (len > 0 && (str[len - 1] == '\n' || str[len - 1] == '\r'))
     {
