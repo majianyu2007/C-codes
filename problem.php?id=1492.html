@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>错误信息 - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>            <!-- 问题 -->
+            <a class="item "
+                href="problemset.php.html"><i class="list icon"></i>问题 </a>
+            <!-- 来源/分类 -->
+            <a class="item "
+                href="category.php.html"><i class="globe icon"></i>来源/分类</a>
+            <!-- 竞赛/作业 -->
+            <a class="item " href="contest.php%3Fmy.html" ><i
+                    class="trophy icon"></i> 竞赛&作业</a>
+            <!-- 状态 -->
+            <a class="item " href="http://202.117.179.201/status.php"><i
+                    class="tasks icon"></i>状态</a>
+            <!-- 排名 -->
+            <a class="desktop-only item  "
+                href="http://202.117.179.201/ranklist.php"><i class="signal icon"></i> 排名</a>
+            <!--<a class="item " href="/discussion/global"><i class="comments icon"></i> 讨论</a>-->
+            <!-- 近期比赛 -->    
+            <!-- 常见问答 -->
+            <a class="desktop-only item " href="faqs.php.html"><i
+                    class="help circle icon"></i> 常见问答</a>
+            <!-- 讨论板 -->
+                                                  <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+   <div class="ui negative icon message">
+   <i class="remove icon"></i>
+
+  <div class="content">
+    <div class="header" style="margin-bottom: 10px; " ondblclick='$(this).load("refresh-privilege.php")'>
+      <hr><br>题目已经用于私有比赛:<a class='label label-warning' href='contest.php%3Fcid=1117.html'>2025年研究生入学考试机试A卷-调剂 </a><br><a class='label label-warning' href='contest.php%3Fcid=1123.html'>2025级信息工程学院C语言程序设计实习题目 </a><br>          </div>
+      <!-- <p><%= err.details %></p> -->
+    <p>
+      <!-- <a href="<%= err.nextUrls[text] %>" style="margin-right: 5px; "><%= text %></a> -->
+
+      <a href="javascript:history.go(-1)">返回上一页</a>
+    </p>
+  </div>
+</div>
+
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>

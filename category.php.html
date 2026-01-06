@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>来源/分类 - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>            <!-- 问题 -->
+            <a class="item "
+                href="problemset.php.html"><i class="list icon"></i>问题 </a>
+            <!-- 来源/分类 -->
+            <a class="item active"
+                href="category.php.html"><i class="globe icon"></i>来源/分类</a>
+            <!-- 竞赛/作业 -->
+            <a class="item " href="contest.php%3Fmy.html" ><i
+                    class="trophy icon"></i> 竞赛&作业</a>
+            <!-- 状态 -->
+            <a class="item " href="http://202.117.179.201/status.php"><i
+                    class="tasks icon"></i>状态</a>
+            <!-- 排名 -->
+            <a class="desktop-only item  "
+                href="http://202.117.179.201/ranklist.php"><i class="signal icon"></i> 排名</a>
+            <!--<a class="item " href="/discussion/global"><i class="comments icon"></i> 讨论</a>-->
+            <!-- 近期比赛 -->    
+            <!-- 常见问答 -->
+            <a class="desktop-only item " href="faqs.php.html"><i
+                    class="help circle icon"></i> 常见问答</a>
+            <!-- 讨论板 -->
+                                                  <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+<div class="padding">
+    <div style="margin-top: 0px; margin-bottom: 14px; padding-bottom: 0px; " >
+        <p class="transition visible">
+           <h1 style="margin-left: 10px; display: inline-block; ">来源/分类</h1>
+        </p>
+        <div class="ui existing segment">
+        <div style='word-wrap:break-word;'><a class='label label-default' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=2017C%E8%AF%AD%E8%A8%80%E9%98%B6%E6%AE%B5%E8%80%83%E8%AF%95'>2017C语言阶段考试</a>&nbsp;<a class='label label-warning' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=2019%E7%BA%A7%E9%98%B6%E6%AE%B52%E8%80%83%E8%AF%95'>2019级阶段2考试</a>&nbsp;<a class='label label-info' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=2019%E9%98%B6%E6%AE%B51%E8%80%83%E8%AF%95'>2019阶段1考试</a>&nbsp;<a class='label label-danger' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=2023%E9%98%B6%E6%AE%B52%E8%80%83%E8%AF%95'>2023阶段2考试</a>&nbsp;<a class='label label-default' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=2024%E9%98%B6%E6%AE%B51%E8%80%83%E8%AF%95'>2024阶段1考试</a>&nbsp;<a class='label label-success' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=2024%E9%98%B6%E6%AE%B52%E8%80%83%E8%AF%95'>2024阶段2考试</a>&nbsp;<a class='label label-default' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=2025%E9%98%B6%E6%AE%B51%E8%80%83%E8%AF%95'>2025阶段1考试</a>&nbsp;<a class='label label-danger' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=ACM%E5%B0%8F%E7%BB%84'>ACM小组</a>&nbsp;<a class='label label-warning' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=c%2B%2B%E5%AE%9E%E4%B9%A0'>c++实习</a>&nbsp;<a class='label label-primary' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=HDOJ'>HDOJ</a>&nbsp;<a class='label label-info' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=ICSO'>ICSO</a>&nbsp;<a class='label label-info' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=NOIP2003'>NOIP2003</a>&nbsp;<a class='label label-primary' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=NOIP2004'>NOIP2004</a>&nbsp;<a class='label label-primary' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=NOIP2008'>NOIP2008</a>&nbsp;<a class='label label-primary' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=USACO'>USACO</a>&nbsp;<a class='label label-primary' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=YC'>YC</a>&nbsp;<a class='label label-info' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=%E4%B8%9C%E8%BD%AF%E7%AC%94%E8%AF%95'>东软笔试</a>&nbsp;<a class='label label-success' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=%E6%9D%8Exx%E6%8F%90%E4%BA%A4%E6%95%B4%E7%90%86'>李xx提交整理</a>&nbsp;<a class='label label-info' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=%E6%9F%90%E6%A0%A1NOIP%E6%A8%A1%E6%8B%9F%E9%A2%98'>某校NOIP模拟题</a>&nbsp;<a class='label label-warning' style='display: inline-block; margin:5px ' href='http://202.117.179.201/problemset.php?search=%E8%A5%BF%E5%B7%A5%E5%A4%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B'>西工大程序设计竞赛</a>&nbsp;</div>        </div>
+    </div>
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>
+<!--not cached-->

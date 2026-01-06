@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>问题 G: 患者到医院看病事件模拟 - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>                        <a id="" class="item" href="contest.php.html" ><i class="arrow left icon"></i>竞赛&作业列表</a>
+            <a id="" class="item active" href="contest.php%3Fcid=1020.html" ><i class="list icon"></i>问题列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/status.php?cid=1020" ><i class="tasks icon"></i>状态列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank.php?cid=1020" ><i class="numbered list icon"></i>排名</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank-oi.php?cid=1020" ><i class="child icon"></i>OI-排名</a>
+            
+                                                        <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+<style>
+.ace_cursor {
+  border-left-width: 1px !important;
+  color: #000 !important;
+}
+
+#languages-menu::-webkit-scrollbar, #testcase-menu::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+div[class*=ace_br] {
+    border-radius: 0 !important;
+}
+.copy {
+    font-size: 12px;
+    color: #4d4d4d;
+    background-color: white;
+    padding: 2px 8px;
+    margin: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.05);
+}
+</style>
+<script src="template/syzoj/clipboard.min.js"></script>
+<script src="template/bs3/marked.min.js"></script>
+<script src="template/syzoj/js/markdown-it.min.js"></script>
+
+<div class="padding ">
+<div class="ui center aligned grid">
+    <div class="row">
+      <h1 class="ui header">
+        问题 G: 患者到医院看病事件模拟      </h1>
+    </div>
+      <div class="row" style="margin-top: -15px">
+          <span class="ui label">内存限制：128 MB</span>
+          <span class="ui label">时间限制：1.000 S</span>
+         <!-- <span class="ui label">标准输入输出</span> -->
+      </div>
+      <div class="row" style="margin-top: -23px">
+        <!--   <span class="ui label">题目类型：传统</span> -->
+          <span class="ui label">评测方式：普通裁判 </span>
+          <span class="ui label">命题人：<span id='creator'></span></span>
+      </div>
+      <div class="row" style="margin-top: -23px">
+          <span class="ui label">提交：4095</span>
+          <span class="ui label">解决：130</span>
+      </div>
+</div>  
+<div class="ui grid">
+  <div class="row" id="submit-buttons"> 
+    <div class="column">
+      <div class="ui buttons">
+
+          <a href="contest.php%3Fcid=1020.html" class="ui orange button">返回比赛</a><a id='submit'  class="small ui primary button" href="http://202.117.179.201/submitpage.php?id=1447">提交</a><a class="small ui positive button" href="http://202.117.179.201/status.php?problem_id=1447">全局提交记录</a><a class="small ui orange button" href="http://202.117.179.201/status.php?problem_id=G&amp;cid=1020">本次比赛提交记录</a><a class='small ui primary button' href='problem.php%3Fcid=1020&amp;pid=6.html#' onclick='transform()' role='button'>露一手!</a>          
+      </div>
+     
+          </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <h4 class="ui top attached block header">题目描述</h4>
+      <div id="description" class="ui bottom attached segment font-content">
+		<span style="color:#000000;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">患者到医院看病的顺序是：先排队等候，再看病治疗。要求设计一个算法，模拟病人等候就诊的过程。</span><br />
+<span style="color:#000000;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">其中：“病人到达”用命令“A”（或“a”）表示,“护士让下一位就诊”用“N”（或“n”）表示，“不再接收病人排队”用“S”（或“s”）表示。</span></div>
+    </div>
+  </div>
+      <div class="row">
+      <div class="column">
+          <h4 class="ui top attached block header">输入</h4>
+          <div id='input' class="ui bottom attached segment font-content"><p style="color:#000000;text-indent:0px;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">
+	A(或a)&nbsp; 病历号<br />
+N(或n)<br />
+S(或s)
+</p>
+<p style="color:#000000;text-indent:0px;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">
+	x(其它字符)
+</p></div>
+      </div>
+    </div>
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">输出</h4>
+          <div id='output' class="ui bottom attached segment font-content"><span style="color:#000000;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">病历号为x的病人就诊</span><br />
+<span style="color:#000000;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">若队列中有数据，输出队首元素，否则输出“无病人就诊”</span><br />
+<span style="color:#000000;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">不再接收病人排队，并输出当前队列中所有病历号</span><br />
+<span style="color:#000000;font-family:Simsun;font-size:medium;font-style:normal;font-weight:normal;">输入命令不合法！</span></div>
+        </div>
+    </div>
+  
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">样例输入 
+          <span class="copy" id="copyin" data-clipboard-text="A
+123
+n
+n
+a
+124
+a
+125
+x
+s">复制</span>
+          </h4>
+          <!-- <span class=copy id=\"copyin\" data-clipboard-text=\"".($sinput)."\">复制</span> -->
+          <div class="ui bottom attached segment font-content">
+            <!-- <pre>A
+123
+n
+n
+a
+124
+a
+125
+x
+s</pre> -->
+            <pre style="margin-top: 0; margin-bottom: 0; "><code id='sinput' class="lang-plain">A
+123
+n
+n
+a
+124
+a
+125
+x
+s</code></pre>
+          </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">样例输出          <span class="copy" id="copyout" data-clipboard-text="病历号为123的病人就诊
+无病人就诊
+输入命令不合法！
+今天不再接收病人排队，下列排队的病人依次就诊：124 125
+">复制</span>
+          </h4>
+          <!-- <span class=copy id=\"copyout\" data-clipboard-text=\"".($soutput)."\">复制</span> -->
+          <div class="ui bottom attached segment font-content">
+            <!-- <div class="ui existing segment"> -->
+              <pre style="margin-top: 0; margin-bottom: 0; "><code id='soutput' class="lang-plain">病历号为123的病人就诊
+无病人就诊
+输入命令不合法！
+今天不再接收病人排队，下列排队的病人依次就诊：124 125
+</code></pre>
+            <!-- </div> -->
+          </div>
+        </div>
+    </div>
+          
+     <div class="ui buttons">
+
+          <a href="contest.php%3Fcid=1020.html" class="ui orange button">返回比赛</a><a id='submit'  class="small ui primary button" href="http://202.117.179.201/submitpage.php?id=1447">提交</a><a class="small ui positive button" href="http://202.117.179.201/status.php?problem_id=G&amp;cid=1020">提交记录</a><a class='small ui primary button' href='problem.php%3Fcid=1020&amp;pid=6.html#' onclick='transform()' role='button'>露一手!</a>          
+      </div>
+</div>
+<style>
+    #dragButton {
+  width: 10px;
+  height: 10%;
+  background-color: gray;
+  position: absolute;
+  top:350px;
+  left: 0;
+  cursor: col-resize; /* 显示可调整宽度的光标 */
+}
+</style>
+  <script type="text/javascript">
+  
+  function transform(){
+        let height=document.body.clientHeight;
+			let width=parseInt(document.body.clientWidth*0.6);
+			let width2=parseInt(document.body.clientWidth*0.4);
+        let submitURL=$("#submit")[0].href;
+	        console.log(width);
+        let main=$("#main");
+        let problem=main.html();
+        if (window.screen.width < 500){
+        	main.parent().append("<div id='submitPage' class='container' style='opacity:0.95;z-index:2;top:49px;'></div>");
+                $("#submitPage").html("<iframe id='ansFrame' src='http://202.117.179.201/&quot;+submitURL+&quot;&amp;spa' width='100%' height='"+window.screen.height+"px' ></iframe>");
+                window.setTimeout('$("#ansFrame")[0].scrollIntoView()',1000);
+	}else{
+        	main.removeClass("container");
+		main.css("width",width2);
+		main.css("margin-left","10px");
+       	 	main.parent().append("<div id='submitPage' class='container' style='opacity:0.95;position:fixed;z-index:2;top:49px;right:-"+width2+"px'></div>");
+		$("#submitPage").html("<iframe src='http://202.117.179.201/&quot;+submitURL+&quot;&amp;spa' width='"+width+"px' height='"+height+"px' ></iframe>");
+	}
+	$("#submit").remove();
+	      
+// Add code to place drag button on the left side of the iframe
+$("#submitPage").prepend("<div id='dragButton'></div>");
+$(document).ready(function() {
+    let isDragging = false;
+    let startX = 0;
+    let initialWidth = 0;
+
+
+    function setIframeReadonly (readonly) {
+        const iframe = $("#submitPage").find('iframe')
+        if (readonly) {
+            iframe.css({
+                position: 'relative',
+                'z-index': -999
+            })
+        } else {
+            iframe.css({
+                position: 'static',
+                'z-index': 'unset'
+            })
+        }
+    }
+
+
+    // 鼠标按下时开始拖拽，颜色变为绿色
+    $("#dragButton").mousedown(function(event) {
+        if (event.target === this) { // Only allow dragging if the mouse button is clicked on the drag button itself
+            isDragging = true;
+            startX = event.pageX;
+            initialWidth = parseInt($("#main").css("width"));
+            $(this).css("background-color", "#a5ff00");
+
+            setIframeReadonly(true)
+
+        }
+    });
+
+    // 拖拽过程中更新宽度
+    $(document).mousemove(function(event) {
+        if (isDragging) {
+            let diffX = event.pageX - startX;
+            let newWidth = initialWidth + diffX;
+            $("#main").css("width", newWidth);
+            $("#submitPage").css("right", "-" + newWidth + "px");
+            $("#submitPage").find("iframe").attr("width", document.body.clientWidth - newWidth + "px");
+        }
+    });
+
+    // 鼠标释放时停止拖拽，恢复原始颜色
+    $(document).mouseup(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+
+        setIframeReadonly(false)
+
+    });
+    
+    // 鼠标移开页面或失焦时停止拖拽，恢复原始颜色
+    $(document).mouseleave(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+
+        setIframeReadonly(false)
+
+    });
+    
+    $(window).blur(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+        setIframeReadonly(false)
+
+    });
+
+});
+
+  }
+
+  function submit_code() {
+    if (!$('#submit_code input[name=answer]').val().trim() && !editor.getValue().trim()) return false;
+    $('#submit_code input[name=language]').val($('#languages-menu .item.active').data('value'));
+    lastSubmitted = editor.getValue();
+    $('#submit_code input[name=code]').val(editor.getValue());
+    return true;
+  }
+
+ // $('#languages-menu')[0].scrollTop = $('#languages-menu .active')[0].offsetTop - $('#languages-menu')[0].firstElementChild.offsetTop;
+
+  $(function () {
+    $('#languages-menu .item').click(function() {
+      $(this)
+        .addClass('active')
+        .closest('.ui.menu')
+        .find('.item')
+          .not($(this))
+          .removeClass('active')
+      ;
+      editor.getSession().setMode("ace/mode/" + $(this).data('mode'));
+    });
+  });
+  </script>
+
+    
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>
+
+  <script>
+function phpfm(pid){
+    //alert(pid);
+    $.post("admin/phpfm.php",{'frame':3,'pid':pid,'pass':''},function(data,status){
+      if(status=="success"){
+        document.location.href="admin/phpfm.php?frame=3&pid="+pid;
+      }
+    });
+}
+function selectOne( num, answer){
+          let editor = $("iframe")[0].contentWindow.$("#source");
+          let old=editor.text();
+          let key= num+".*";
+          console.log(key);
+          let rep=old.replace(new RegExp(key),num+" "+answer);
+          editor.text(rep);
+}
+function selectMulti( num, answer){
+  let editor = $("iframe")[0].contentWindow.$("#source");
+  let old=editor.text();
+  let key= num+".*";
+  console.log(key);
+  let rep=old.replace(new RegExp(key),num+" "+answer);
+  editor.text(rep);
+}
+
+  $(document).ready(function(){
+    	$("#creator").load("problem-ajax.php?pid=1447");
+		        //单纯文本1. A. B. C. D. 自动变控件
+        $('span[class=auto_select]').each(function(){
+                let i=1;
+                let start=0;
+                let next=0;
+                let raw=$(this).html();
+                let options=['A','B','C','D'];
+		console.log("scanning...");
+                while(start>=0){
+                        start=raw.indexOf("\n"+i+".",start);
+                        if(start<0) break;
+                        let end=start;
+                        let type="radio"
+                        for(let j=0;j<4;j++){
+                                let option=options[j];
+                                end=raw.indexOf(option+".",start);
+                                next=raw.indexOf("\n"+(i+1)+".",start);
+				console.log("["+raw.substring(start,end)+"]");
+                                if ( end<0 || ( end > next && next > 0 )) {
+                                        console.log("i:"+i+" j:"+option+" end:"+end+" next:"+next);
+                                        end=start;
+                                        break;
+                                }
+                                if(j==0&&raw.substring(start,end).indexOf("多选")>0) type="checkbox";
+                                let disp="<input type=\""+type+"\" name=\""+i+"\" value=\""+option+"\" />"+option+".";
+                                //console.log(disp);
+                                raw= raw.substring(0,end-1)+disp+raw.substring(end+2);
+                                start+=disp.length;
+                        }
+                        start=end+1;
+                        i++;
+                }
+                //console.log(raw);
+                $(this).html(raw);
+        });
+
+// subjective problems from hydroOJ markdown and embeded marks
+               $('span[class="md auto_select"]').each(function(){
+                let i=1;
+                let options=['A','B','C','D','E','F','G'];
+                $(this).find("ul").each(function(){
+                        let type="radio";
+                        let ol=$(this).prev("ol");
+                        if(ol!=undefined && ol.attr("start")!=undefined) i=ol.attr("start");
+                        console.log("id["+i+"]");
+                        if($(this).html().indexOf("多选")>0|| (ol!=undefined && ol.html()!=undefined && ol.html().indexOf("multiselect")>0)) type="checkbox";
+                        let j=0;
+                        $(this).find("li").each(function(){
+                                let option=options[j];
+                                let disp="<input type=\""+type+"\" name=\""+i+"\" value=\""+option+"\" />"+option+".";
+                                $(this).prepend(disp);
+                                //console.log(options[j]);
+                                j++;
+                        });
+                        i++;
+                });
+                let html=$(this).html();
+                for(;i>0;i--){
+                        console.log("searching..."+i);
+                        html=html.replace("{{ input("+i+") }}","<input type='text' size=5 name='"+i+"' placeholder='第"+i+"题' ><br>");
+                }
+                html=html.replaceAll("＜","&lt;");
+                html=html.replaceAll("＞","&gt;");
+                $(this).html(html);
+        });
+
+
+        $(".auto_select").find('input[type="text"]').change(function(){
+                selectOne($(this).attr("name"),$(this).val());
+        });
+
+
+        $('input[type="radio"]').click(function(){
+                if ($(this).is(':checked'))
+                   selectOne($(this).attr("name"),$(this).val());
+        }).css("width","24px").css("height","21px");
+	$('input[type="checkbox"]').click(function(){
+                let num=$(this).attr("name");
+                let answer="";
+                $("input[type=checkbox][name="+num+"]").each(function(){
+                        if ($(this).is(':checked'))
+                                answer+=$(this).val();
+                });
+                selectMulti(num,answer);
+        }).css("width","24px").css("height","21px");
+	
+  });
+  </script>   
+
+
+  <script>
+	  if($('#copyin')[0]!= undefined ){
+
+		    var clipboardin=new Clipboard($('#copyin')[0]);
+		    clipboardin.on('success', function(e){
+		      $("#copyin").text("复制成功!"); 
+		          setTimeout(function () {$("#copyin").text("复制"); }, 1500);    
+		      console.log(e);
+		    });
+		    clipboardin.on('error', function(e){
+		      $("#copyin").text("复制失败!"); 
+		          setTimeout(function () {$("#copyin").text("复制"); }, 1500);
+		      console.log(e);
+		    });
+	  }
+	  if($('#copyout')[0]!= undefined ){
+
+		    var clipboardout=new Clipboard($('#copyout')[0]);
+		    clipboardout.on('success', function(e){
+		      $("#copyout").text("复制成功!"); 
+		          setTimeout(function () {$("#copyout").text("复制"); }, 1500);    
+		      console.log(e);
+		    });
+		    clipboardout.on('error', function(e){
+		      $("#copyout").text("复制失败!"); 
+		          setTimeout(function () {$("#copyout").text("复制"); }, 1500);
+		      console.log(e);
+		    });
+	  }
+
+  </script>
+<!--not cached-->

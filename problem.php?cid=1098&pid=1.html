@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>问题 B: Luhn算法证件号码校验 - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>                        <a id="" class="item" href="contest.php.html" ><i class="arrow left icon"></i>竞赛&作业列表</a>
+            <a id="" class="item active" href="contest.php%3Fcid=1098.html" ><i class="list icon"></i>问题列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/status.php?cid=1098" ><i class="tasks icon"></i>状态列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank.php?cid=1098" ><i class="numbered list icon"></i>排名</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank-oi.php?cid=1098" ><i class="child icon"></i>OI-排名</a>
+            
+                                                        <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+<style>
+.ace_cursor {
+  border-left-width: 1px !important;
+  color: #000 !important;
+}
+
+#languages-menu::-webkit-scrollbar, #testcase-menu::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+div[class*=ace_br] {
+    border-radius: 0 !important;
+}
+.copy {
+    font-size: 12px;
+    color: #4d4d4d;
+    background-color: white;
+    padding: 2px 8px;
+    margin: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.05);
+}
+</style>
+<script src="template/syzoj/clipboard.min.js"></script>
+<script src="template/bs3/marked.min.js"></script>
+<script src="template/syzoj/js/markdown-it.min.js"></script>
+
+<div class="padding ">
+<div class="ui center aligned grid">
+    <div class="row">
+      <h1 class="ui header">
+        问题 B: Luhn算法证件号码校验      </h1>
+    </div>
+      <div class="row" style="margin-top: -15px">
+          <span class="ui label">内存限制：128 MB</span>
+          <span class="ui label">时间限制：1.000 S</span>
+         <!-- <span class="ui label">标准输入输出</span> -->
+      </div>
+      <div class="row" style="margin-top: -23px">
+        <!--   <span class="ui label">题目类型：传统</span> -->
+          <span class="ui label">评测方式：普通裁判 </span>
+          <span class="ui label">命题人：<span id='creator'></span></span>
+      </div>
+      <div class="row" style="margin-top: -23px">
+          <span class="ui label">提交：2381</span>
+          <span class="ui label">解决：397</span>
+      </div>
+</div>  
+<div class="ui grid">
+  <div class="row" id="submit-buttons"> 
+    <div class="column">
+      <div class="ui buttons">
+
+          <a href="contest.php%3Fcid=1098.html" class="ui orange button">返回比赛</a><a id='submit'  class="small ui primary button" href="http://202.117.179.201/submitpage.php?id=1540">提交</a><a class="small ui positive button" href="http://202.117.179.201/status.php?problem_id=1540">全局提交记录</a><a class="small ui orange button" href="http://202.117.179.201/status.php?problem_id=B&amp;cid=1098">本次比赛提交记录</a><a class='small ui primary button' href='problem.php%3Fcid=1098&amp;pid=1.html#' onclick='transform()' role='button'>露一手!</a>          
+      </div>
+     
+          </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <h4 class="ui top attached block header">题目描述</h4>
+      <div id="description" class="ui bottom attached segment font-content">
+		Luhn算法是一种广泛使用的证件号码(<strong>由若干数字组成，长度不定</strong>)“模10”校验算法。其计算过程为：<br />
+1、从卡号最未位数字开始，逆向将奇数位(1、3、5等)求和。<br />
+2、从卡号最未位数字开始，逆向将偶数位数字乘2后求和（说明：如果乘2得到的是两位数，则将乘2的结果减9后参与求和）。<br />
+3、将奇数位和与偶数位和相加，通过判断相加结果是否是10的整数倍实现校验。<br />
+<br />
+例如对于卡号5432123456788881，其各位数字编号如下表所示：<br />
+<img style="width:70%;" src="data:image/png;base64,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" alt="" /> <br />
+则其“模10”校验计算过程为：<br />
+1、奇数位和 = 1+8+8+6+4+2+2+4 = 35 <br />
+2、偶数位和 = (8*2-9)+(8*2-9)+(7*2-9)+(5*2-9)+(3*2)+(1*2)+(3*2)+(5*2-9) <br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 7+7+5+1+ 6+2+6+1 = 35<br />
+3、奇数位和+偶数位和=35+35=70, 结果是10的整数倍，校验通过。<br />
+<br />
+请编写函数CheckLuhn()，完成若干组证件号码的Luhn校验，要求函数原型为：<br />
+&nbsp; &nbsp; &nbsp; &nbsp; int CheckLuhn(const char * cardId , int sum[2]);<br />
+其中，cardId是待校验证件号码字符串，sum是由两个元素构成的整型数组，sum[0]用于存储奇数位和，sum[1]用于存储偶数位和。如果<span>通过</span>校验，函数返回0，否则返回1。 <br />
+<br />
+请在已给出的宏定义、函数原型、驱动main函数代码的基础上完成题目。<br />
+程序主框架如下（<strong><span style="color:#E53333;">注意，只提交题目要求的函数</span></strong>）：
+<pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define MAX_LEN 128
+
+int CheckLuhn ( const char * cardId, int sum[2] );
+int ReadLine(char *s);
+
+int ReadLine(char *s)
+{
+    int n = 0, ch = 0;
+    while((ch = getchar()) != '\n' &amp;&amp; ch != EOF &amp;&amp; n &lt; MAX_LEN - 1)
+        s[n++] = ch;
+    s[n]='\0';
+    return n;
+}
+
+int main()
+{
+    int s[2]={0}, r;
+    char id[MAX_LEN];
+
+    while (ReadLine(id) &gt; 0) {
+        r = CheckLuhn(id, s);
+        printf("%s,R=%d\t%d\t%d\n", id, r, s[0], s[1]);
+    }
+    return 0;
+}
+</pre></div>
+    </div>
+  </div>
+      <div class="row">
+      <div class="column">
+          <h4 class="ui top attached block header">输入</h4>
+          <div id='input' class="ui bottom attached segment font-content">若干行号码字符串</div>
+      </div>
+    </div>
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">输出</h4>
+          <div id='output' class="ui bottom attached segment font-content">四部分内容。第一部分为校验号码，第二部分为校验结果，第三、第四部分分别为奇数位和与偶数位和。<br />
+说明：输出格式由题目框架设定，无需关注输出格式。</div>
+        </div>
+    </div>
+  
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">样例输入 
+          <span class="copy" id="copyin" data-clipboard-text="4342560238811238">复制</span>
+          </h4>
+          <!-- <span class=copy id=\"copyin\" data-clipboard-text=\"".($sinput)."\">复制</span> -->
+          <div class="ui bottom attached segment font-content">
+            <!-- <pre>4342560238811238</pre> -->
+            <pre style="margin-top: 0; margin-bottom: 0; "><code id='sinput' class="lang-plain">4342560238811238</code></pre>
+          </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">样例输出          <span class="copy" id="copyout" data-clipboard-text="4342560238811238,R=0    32      38">复制</span>
+          </h4>
+          <!-- <span class=copy id=\"copyout\" data-clipboard-text=\"".($soutput)."\">复制</span> -->
+          <div class="ui bottom attached segment font-content">
+            <!-- <div class="ui existing segment"> -->
+              <pre style="margin-top: 0; margin-bottom: 0; "><code id='soutput' class="lang-plain">4342560238811238,R=0    32      38</code></pre>
+            <!-- </div> -->
+          </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">提示</h4>
+          <div id='hint' class="ui bottom attached segment font-content hint">注意：在设计的函数中不需要进行任何数据输出，如需查看运算结果，请在提交前删除相关数据输出代码。</div>
+        </div>
+    </div>
+        
+     <div class="ui buttons">
+
+          <a href="contest.php%3Fcid=1098.html" class="ui orange button">返回比赛</a><a id='submit'  class="small ui primary button" href="http://202.117.179.201/submitpage.php?id=1540">提交</a><a class="small ui positive button" href="http://202.117.179.201/status.php?problem_id=B&amp;cid=1098">提交记录</a><a class='small ui primary button' href='problem.php%3Fcid=1098&amp;pid=1.html#' onclick='transform()' role='button'>露一手!</a>          
+      </div>
+</div>
+<style>
+    #dragButton {
+  width: 10px;
+  height: 10%;
+  background-color: gray;
+  position: absolute;
+  top:350px;
+  left: 0;
+  cursor: col-resize; /* 显示可调整宽度的光标 */
+}
+</style>
+  <script type="text/javascript">
+  
+  function transform(){
+        let height=document.body.clientHeight;
+			let width=parseInt(document.body.clientWidth*0.6);
+			let width2=parseInt(document.body.clientWidth*0.4);
+        let submitURL=$("#submit")[0].href;
+	        console.log(width);
+        let main=$("#main");
+        let problem=main.html();
+        if (window.screen.width < 500){
+        	main.parent().append("<div id='submitPage' class='container' style='opacity:0.95;z-index:2;top:49px;'></div>");
+                $("#submitPage").html("<iframe id='ansFrame' src='http://202.117.179.201/&quot;+submitURL+&quot;&amp;spa' width='100%' height='"+window.screen.height+"px' ></iframe>");
+                window.setTimeout('$("#ansFrame")[0].scrollIntoView()',1000);
+	}else{
+        	main.removeClass("container");
+		main.css("width",width2);
+		main.css("margin-left","10px");
+       	 	main.parent().append("<div id='submitPage' class='container' style='opacity:0.95;position:fixed;z-index:2;top:49px;right:-"+width2+"px'></div>");
+		$("#submitPage").html("<iframe src='http://202.117.179.201/&quot;+submitURL+&quot;&amp;spa' width='"+width+"px' height='"+height+"px' ></iframe>");
+	}
+	$("#submit").remove();
+	      
+// Add code to place drag button on the left side of the iframe
+$("#submitPage").prepend("<div id='dragButton'></div>");
+$(document).ready(function() {
+    let isDragging = false;
+    let startX = 0;
+    let initialWidth = 0;
+
+
+    function setIframeReadonly (readonly) {
+        const iframe = $("#submitPage").find('iframe')
+        if (readonly) {
+            iframe.css({
+                position: 'relative',
+                'z-index': -999
+            })
+        } else {
+            iframe.css({
+                position: 'static',
+                'z-index': 'unset'
+            })
+        }
+    }
+
+
+    // 鼠标按下时开始拖拽，颜色变为绿色
+    $("#dragButton").mousedown(function(event) {
+        if (event.target === this) { // Only allow dragging if the mouse button is clicked on the drag button itself
+            isDragging = true;
+            startX = event.pageX;
+            initialWidth = parseInt($("#main").css("width"));
+            $(this).css("background-color", "#a5ff00");
+
+            setIframeReadonly(true)
+
+        }
+    });
+
+    // 拖拽过程中更新宽度
+    $(document).mousemove(function(event) {
+        if (isDragging) {
+            let diffX = event.pageX - startX;
+            let newWidth = initialWidth + diffX;
+            $("#main").css("width", newWidth);
+            $("#submitPage").css("right", "-" + newWidth + "px");
+            $("#submitPage").find("iframe").attr("width", document.body.clientWidth - newWidth + "px");
+        }
+    });
+
+    // 鼠标释放时停止拖拽，恢复原始颜色
+    $(document).mouseup(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+
+        setIframeReadonly(false)
+
+    });
+    
+    // 鼠标移开页面或失焦时停止拖拽，恢复原始颜色
+    $(document).mouseleave(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+
+        setIframeReadonly(false)
+
+    });
+    
+    $(window).blur(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+        setIframeReadonly(false)
+
+    });
+
+});
+
+  }
+
+  function submit_code() {
+    if (!$('#submit_code input[name=answer]').val().trim() && !editor.getValue().trim()) return false;
+    $('#submit_code input[name=language]').val($('#languages-menu .item.active').data('value'));
+    lastSubmitted = editor.getValue();
+    $('#submit_code input[name=code]').val(editor.getValue());
+    return true;
+  }
+
+ // $('#languages-menu')[0].scrollTop = $('#languages-menu .active')[0].offsetTop - $('#languages-menu')[0].firstElementChild.offsetTop;
+
+  $(function () {
+    $('#languages-menu .item').click(function() {
+      $(this)
+        .addClass('active')
+        .closest('.ui.menu')
+        .find('.item')
+          .not($(this))
+          .removeClass('active')
+      ;
+      editor.getSession().setMode("ace/mode/" + $(this).data('mode'));
+    });
+  });
+  </script>
+
+    
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>
+
+  <script>
+function phpfm(pid){
+    //alert(pid);
+    $.post("admin/phpfm.php",{'frame':3,'pid':pid,'pass':''},function(data,status){
+      if(status=="success"){
+        document.location.href="admin/phpfm.php?frame=3&pid="+pid;
+      }
+    });
+}
+function selectOne( num, answer){
+          let editor = $("iframe")[0].contentWindow.$("#source");
+          let old=editor.text();
+          let key= num+".*";
+          console.log(key);
+          let rep=old.replace(new RegExp(key),num+" "+answer);
+          editor.text(rep);
+}
+function selectMulti( num, answer){
+  let editor = $("iframe")[0].contentWindow.$("#source");
+  let old=editor.text();
+  let key= num+".*";
+  console.log(key);
+  let rep=old.replace(new RegExp(key),num+" "+answer);
+  editor.text(rep);
+}
+
+  $(document).ready(function(){
+    	$("#creator").load("problem-ajax.php?pid=1540");
+		        //单纯文本1. A. B. C. D. 自动变控件
+        $('span[class=auto_select]').each(function(){
+                let i=1;
+                let start=0;
+                let next=0;
+                let raw=$(this).html();
+                let options=['A','B','C','D'];
+		console.log("scanning...");
+                while(start>=0){
+                        start=raw.indexOf("\n"+i+".",start);
+                        if(start<0) break;
+                        let end=start;
+                        let type="radio"
+                        for(let j=0;j<4;j++){
+                                let option=options[j];
+                                end=raw.indexOf(option+".",start);
+                                next=raw.indexOf("\n"+(i+1)+".",start);
+				console.log("["+raw.substring(start,end)+"]");
+                                if ( end<0 || ( end > next && next > 0 )) {
+                                        console.log("i:"+i+" j:"+option+" end:"+end+" next:"+next);
+                                        end=start;
+                                        break;
+                                }
+                                if(j==0&&raw.substring(start,end).indexOf("多选")>0) type="checkbox";
+                                let disp="<input type=\""+type+"\" name=\""+i+"\" value=\""+option+"\" />"+option+".";
+                                //console.log(disp);
+                                raw= raw.substring(0,end-1)+disp+raw.substring(end+2);
+                                start+=disp.length;
+                        }
+                        start=end+1;
+                        i++;
+                }
+                //console.log(raw);
+                $(this).html(raw);
+        });
+
+// subjective problems from hydroOJ markdown and embeded marks
+               $('span[class="md auto_select"]').each(function(){
+                let i=1;
+                let options=['A','B','C','D','E','F','G'];
+                $(this).find("ul").each(function(){
+                        let type="radio";
+                        let ol=$(this).prev("ol");
+                        if(ol!=undefined && ol.attr("start")!=undefined) i=ol.attr("start");
+                        console.log("id["+i+"]");
+                        if($(this).html().indexOf("多选")>0|| (ol!=undefined && ol.html()!=undefined && ol.html().indexOf("multiselect")>0)) type="checkbox";
+                        let j=0;
+                        $(this).find("li").each(function(){
+                                let option=options[j];
+                                let disp="<input type=\""+type+"\" name=\""+i+"\" value=\""+option+"\" />"+option+".";
+                                $(this).prepend(disp);
+                                //console.log(options[j]);
+                                j++;
+                        });
+                        i++;
+                });
+                let html=$(this).html();
+                for(;i>0;i--){
+                        console.log("searching..."+i);
+                        html=html.replace("{{ input("+i+") }}","<input type='text' size=5 name='"+i+"' placeholder='第"+i+"题' ><br>");
+                }
+                html=html.replaceAll("＜","&lt;");
+                html=html.replaceAll("＞","&gt;");
+                $(this).html(html);
+        });
+
+
+        $(".auto_select").find('input[type="text"]').change(function(){
+                selectOne($(this).attr("name"),$(this).val());
+        });
+
+
+        $('input[type="radio"]').click(function(){
+                if ($(this).is(':checked'))
+                   selectOne($(this).attr("name"),$(this).val());
+        }).css("width","24px").css("height","21px");
+	$('input[type="checkbox"]').click(function(){
+                let num=$(this).attr("name");
+                let answer="";
+                $("input[type=checkbox][name="+num+"]").each(function(){
+                        if ($(this).is(':checked'))
+                                answer+=$(this).val();
+                });
+                selectMulti(num,answer);
+        }).css("width","24px").css("height","21px");
+	
+  });
+  </script>   
+
+
+  <script>
+	  if($('#copyin')[0]!= undefined ){
+
+		    var clipboardin=new Clipboard($('#copyin')[0]);
+		    clipboardin.on('success', function(e){
+		      $("#copyin").text("复制成功!"); 
+		          setTimeout(function () {$("#copyin").text("复制"); }, 1500);    
+		      console.log(e);
+		    });
+		    clipboardin.on('error', function(e){
+		      $("#copyin").text("复制失败!"); 
+		          setTimeout(function () {$("#copyin").text("复制"); }, 1500);
+		      console.log(e);
+		    });
+	  }
+	  if($('#copyout')[0]!= undefined ){
+
+		    var clipboardout=new Clipboard($('#copyout')[0]);
+		    clipboardout.on('success', function(e){
+		      $("#copyout").text("复制成功!"); 
+		          setTimeout(function () {$("#copyout").text("复制"); }, 1500);    
+		      console.log(e);
+		    });
+		    clipboardout.on('error', function(e){
+		      $("#copyout").text("复制失败!"); 
+		          setTimeout(function () {$("#copyout").text("复制"); }, 1500);
+		      console.log(e);
+		    });
+	  }
+
+  </script>
+<!--not cached-->

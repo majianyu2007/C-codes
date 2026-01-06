@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>问题 A: 计算信息熵  - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>                        <a id="" class="item" href="contest.php.html" ><i class="arrow left icon"></i>竞赛&作业列表</a>
+            <a id="" class="item active" href="contest.php%3Fcid=1103.html" ><i class="list icon"></i>问题列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/status.php?cid=1103" ><i class="tasks icon"></i>状态列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank.php?cid=1103" ><i class="numbered list icon"></i>排名</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank-oi.php?cid=1103" ><i class="child icon"></i>OI-排名</a>
+            
+                                                        <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+<style>
+.ace_cursor {
+  border-left-width: 1px !important;
+  color: #000 !important;
+}
+
+#languages-menu::-webkit-scrollbar, #testcase-menu::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+div[class*=ace_br] {
+    border-radius: 0 !important;
+}
+.copy {
+    font-size: 12px;
+    color: #4d4d4d;
+    background-color: white;
+    padding: 2px 8px;
+    margin: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.05);
+}
+</style>
+<script src="template/syzoj/clipboard.min.js"></script>
+<script src="template/bs3/marked.min.js"></script>
+<script src="template/syzoj/js/markdown-it.min.js"></script>
+
+<div class="padding ">
+<div class="ui center aligned grid">
+    <div class="row">
+      <h1 class="ui header">
+        问题 A: 计算信息熵       </h1>
+    </div>
+      <div class="row" style="margin-top: -15px">
+          <span class="ui label">内存限制：128 MB</span>
+          <span class="ui label">时间限制：1.000 S</span>
+         <!-- <span class="ui label">标准输入输出</span> -->
+      </div>
+      <div class="row" style="margin-top: -23px">
+        <!--   <span class="ui label">题目类型：传统</span> -->
+          <span class="ui label">评测方式：普通裁判 </span>
+          <span class="ui label">命题人：<span id='creator'></span></span>
+      </div>
+      <div class="row" style="margin-top: -23px">
+          <span class="ui label">提交：3829</span>
+          <span class="ui label">解决：701</span>
+      </div>
+</div>  
+<div class="ui grid">
+  <div class="row" id="submit-buttons"> 
+    <div class="column">
+      <div class="ui buttons">
+
+          <a href="contest.php%3Fcid=1103.html" class="ui orange button">返回比赛</a><a id='submit'  class="small ui primary button" href="http://202.117.179.201/submitpage.php?id=1546">提交</a><a class="small ui positive button" href="http://202.117.179.201/status.php?problem_id=1546">全局提交记录</a><a class="small ui orange button" href="http://202.117.179.201/status.php?problem_id=A&amp;cid=1103">本次比赛提交记录</a><a class='small ui primary button' href='problem.php%3Fcid=1103&amp;pid=0.html#' onclick='transform()' role='button'>露一手!</a>          
+      </div>
+     
+          </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <h4 class="ui top attached block header">题目描述</h4>
+      <div id="description" class="ui bottom attached segment font-content">
+		<p>
+	输入由字符集{'a'&#44; 'b'&#44; 'c'}中的字符构成的不定长度（长度&gt;=1）的多个字符序列，利用下式计算其信息熵H：
+</p>
+<p style="text-align:center;">
+	&nbsp; <img style="width:20%;" src="data:image/png;base64&#44;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" alt="" /> 
+</p>
+<p>
+	式中，pi表示字符集{'a'&#44;'b'&#44;'c'}中第i(i=1&#44;2&#44;3)个字符在字符序列中出现的频率（即该字符出现的次数除以序列有效总长度，其中有效总长度是指在序列中出现的'a'、'b'、'c'字符的个数），log2表示以2为底的对数，可通过math.h中的log2函数计算（在117服务器上编译时需加-lm参数）。<strong><span style="color:#E53333;">注意：若序列中出现{'a'&#44; 'b'&#44; 'c'}之外的字符，如其他字母、数字及空格、制表符等其他符号，则不计入统计。</span></strong>
+</p></div>
+    </div>
+  </div>
+      <div class="row">
+      <div class="column">
+          <h4 class="ui top attached block header">输入</h4>
+          <div id='input' class="ui bottom attached segment font-content">由{'a'&#44; 'b'&#44; 'c'}三个字符构成的不定长度（且长度>=1）的字符序列，以回车键作为结束</div>
+      </div>
+    </div>
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">输出</h4>
+          <div id='output' class="ui bottom attached segment font-content">在屏幕上打印所输入字符序列的信息熵H值，并保留小数点后3位有效数字</div>
+        </div>
+    </div>
+  
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">样例输入 
+          <span class="copy" id="copyin" data-clipboard-text="aacc">复制</span>
+          </h4>
+          <!-- <span class=copy id=\"copyin\" data-clipboard-text=\"".($sinput)."\">复制</span> -->
+          <div class="ui bottom attached segment font-content">
+            <!-- <pre>aacc</pre> -->
+            <pre style="margin-top: 0; margin-bottom: 0; "><code id='sinput' class="lang-plain">aacc</code></pre>
+          </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="column">
+          <h4 class="ui top attached block header">样例输出          <span class="copy" id="copyout" data-clipboard-text="1.000">复制</span>
+          </h4>
+          <!-- <span class=copy id=\"copyout\" data-clipboard-text=\"".($soutput)."\">复制</span> -->
+          <div class="ui bottom attached segment font-content">
+            <!-- <div class="ui existing segment"> -->
+              <pre style="margin-top: 0; margin-bottom: 0; "><code id='soutput' class="lang-plain">1.000</code></pre>
+            <!-- </div> -->
+          </div>
+        </div>
+    </div>
+          
+     <div class="ui buttons">
+
+          <a href="contest.php%3Fcid=1103.html" class="ui orange button">返回比赛</a><a id='submit'  class="small ui primary button" href="http://202.117.179.201/submitpage.php?id=1546">提交</a><a class="small ui positive button" href="http://202.117.179.201/status.php?problem_id=A&amp;cid=1103">提交记录</a><a class='small ui primary button' href='problem.php%3Fcid=1103&amp;pid=0.html#' onclick='transform()' role='button'>露一手!</a>          
+      </div>
+</div>
+<style>
+    #dragButton {
+  width: 10px;
+  height: 10%;
+  background-color: gray;
+  position: absolute;
+  top:350px;
+  left: 0;
+  cursor: col-resize; /* 显示可调整宽度的光标 */
+}
+</style>
+  <script type="text/javascript">
+  
+  function transform(){
+        let height=document.body.clientHeight;
+			let width=parseInt(document.body.clientWidth*0.6);
+			let width2=parseInt(document.body.clientWidth*0.4);
+        let submitURL=$("#submit")[0].href;
+	        console.log(width);
+        let main=$("#main");
+        let problem=main.html();
+        if (window.screen.width < 500){
+        	main.parent().append("<div id='submitPage' class='container' style='opacity:0.95;z-index:2;top:49px;'></div>");
+                $("#submitPage").html("<iframe id='ansFrame' src='http://202.117.179.201/&quot;+submitURL+&quot;&amp;spa' width='100%' height='"+window.screen.height+"px' ></iframe>");
+                window.setTimeout('$("#ansFrame")[0].scrollIntoView()',1000);
+	}else{
+        	main.removeClass("container");
+		main.css("width",width2);
+		main.css("margin-left","10px");
+       	 	main.parent().append("<div id='submitPage' class='container' style='opacity:0.95;position:fixed;z-index:2;top:49px;right:-"+width2+"px'></div>");
+		$("#submitPage").html("<iframe src='http://202.117.179.201/&quot;+submitURL+&quot;&amp;spa' width='"+width+"px' height='"+height+"px' ></iframe>");
+	}
+	$("#submit").remove();
+	      
+// Add code to place drag button on the left side of the iframe
+$("#submitPage").prepend("<div id='dragButton'></div>");
+$(document).ready(function() {
+    let isDragging = false;
+    let startX = 0;
+    let initialWidth = 0;
+
+
+    function setIframeReadonly (readonly) {
+        const iframe = $("#submitPage").find('iframe')
+        if (readonly) {
+            iframe.css({
+                position: 'relative',
+                'z-index': -999
+            })
+        } else {
+            iframe.css({
+                position: 'static',
+                'z-index': 'unset'
+            })
+        }
+    }
+
+
+    // 鼠标按下时开始拖拽，颜色变为绿色
+    $("#dragButton").mousedown(function(event) {
+        if (event.target === this) { // Only allow dragging if the mouse button is clicked on the drag button itself
+            isDragging = true;
+            startX = event.pageX;
+            initialWidth = parseInt($("#main").css("width"));
+            $(this).css("background-color", "#a5ff00");
+
+            setIframeReadonly(true)
+
+        }
+    });
+
+    // 拖拽过程中更新宽度
+    $(document).mousemove(function(event) {
+        if (isDragging) {
+            let diffX = event.pageX - startX;
+            let newWidth = initialWidth + diffX;
+            $("#main").css("width", newWidth);
+            $("#submitPage").css("right", "-" + newWidth + "px");
+            $("#submitPage").find("iframe").attr("width", document.body.clientWidth - newWidth + "px");
+        }
+    });
+
+    // 鼠标释放时停止拖拽，恢复原始颜色
+    $(document).mouseup(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+
+        setIframeReadonly(false)
+
+    });
+    
+    // 鼠标移开页面或失焦时停止拖拽，恢复原始颜色
+    $(document).mouseleave(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+
+        setIframeReadonly(false)
+
+    });
+    
+    $(window).blur(function() {
+        if (isDragging) {
+            $("#dragButton").css("background-color", "gray");
+        }
+        isDragging = false;
+        setIframeReadonly(false)
+
+    });
+
+});
+
+  }
+
+  function submit_code() {
+    if (!$('#submit_code input[name=answer]').val().trim() && !editor.getValue().trim()) return false;
+    $('#submit_code input[name=language]').val($('#languages-menu .item.active').data('value'));
+    lastSubmitted = editor.getValue();
+    $('#submit_code input[name=code]').val(editor.getValue());
+    return true;
+  }
+
+ // $('#languages-menu')[0].scrollTop = $('#languages-menu .active')[0].offsetTop - $('#languages-menu')[0].firstElementChild.offsetTop;
+
+  $(function () {
+    $('#languages-menu .item').click(function() {
+      $(this)
+        .addClass('active')
+        .closest('.ui.menu')
+        .find('.item')
+          .not($(this))
+          .removeClass('active')
+      ;
+      editor.getSession().setMode("ace/mode/" + $(this).data('mode'));
+    });
+  });
+  </script>
+
+    
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>
+
+  <script>
+function phpfm(pid){
+    //alert(pid);
+    $.post("admin/phpfm.php",{'frame':3,'pid':pid,'pass':''},function(data,status){
+      if(status=="success"){
+        document.location.href="admin/phpfm.php?frame=3&pid="+pid;
+      }
+    });
+}
+function selectOne( num, answer){
+          let editor = $("iframe")[0].contentWindow.$("#source");
+          let old=editor.text();
+          let key= num+".*";
+          console.log(key);
+          let rep=old.replace(new RegExp(key),num+" "+answer);
+          editor.text(rep);
+}
+function selectMulti( num, answer){
+  let editor = $("iframe")[0].contentWindow.$("#source");
+  let old=editor.text();
+  let key= num+".*";
+  console.log(key);
+  let rep=old.replace(new RegExp(key),num+" "+answer);
+  editor.text(rep);
+}
+
+  $(document).ready(function(){
+    	$("#creator").load("problem-ajax.php?pid=1546");
+		        //单纯文本1. A. B. C. D. 自动变控件
+        $('span[class=auto_select]').each(function(){
+                let i=1;
+                let start=0;
+                let next=0;
+                let raw=$(this).html();
+                let options=['A','B','C','D'];
+		console.log("scanning...");
+                while(start>=0){
+                        start=raw.indexOf("\n"+i+".",start);
+                        if(start<0) break;
+                        let end=start;
+                        let type="radio"
+                        for(let j=0;j<4;j++){
+                                let option=options[j];
+                                end=raw.indexOf(option+".",start);
+                                next=raw.indexOf("\n"+(i+1)+".",start);
+				console.log("["+raw.substring(start,end)+"]");
+                                if ( end<0 || ( end > next && next > 0 )) {
+                                        console.log("i:"+i+" j:"+option+" end:"+end+" next:"+next);
+                                        end=start;
+                                        break;
+                                }
+                                if(j==0&&raw.substring(start,end).indexOf("多选")>0) type="checkbox";
+                                let disp="<input type=\""+type+"\" name=\""+i+"\" value=\""+option+"\" />"+option+".";
+                                //console.log(disp);
+                                raw= raw.substring(0,end-1)+disp+raw.substring(end+2);
+                                start+=disp.length;
+                        }
+                        start=end+1;
+                        i++;
+                }
+                //console.log(raw);
+                $(this).html(raw);
+        });
+
+// subjective problems from hydroOJ markdown and embeded marks
+               $('span[class="md auto_select"]').each(function(){
+                let i=1;
+                let options=['A','B','C','D','E','F','G'];
+                $(this).find("ul").each(function(){
+                        let type="radio";
+                        let ol=$(this).prev("ol");
+                        if(ol!=undefined && ol.attr("start")!=undefined) i=ol.attr("start");
+                        console.log("id["+i+"]");
+                        if($(this).html().indexOf("多选")>0|| (ol!=undefined && ol.html()!=undefined && ol.html().indexOf("multiselect")>0)) type="checkbox";
+                        let j=0;
+                        $(this).find("li").each(function(){
+                                let option=options[j];
+                                let disp="<input type=\""+type+"\" name=\""+i+"\" value=\""+option+"\" />"+option+".";
+                                $(this).prepend(disp);
+                                //console.log(options[j]);
+                                j++;
+                        });
+                        i++;
+                });
+                let html=$(this).html();
+                for(;i>0;i--){
+                        console.log("searching..."+i);
+                        html=html.replace("{{ input("+i+") }}","<input type='text' size=5 name='"+i+"' placeholder='第"+i+"题' ><br>");
+                }
+                html=html.replaceAll("＜","&lt;");
+                html=html.replaceAll("＞","&gt;");
+                $(this).html(html);
+        });
+
+
+        $(".auto_select").find('input[type="text"]').change(function(){
+                selectOne($(this).attr("name"),$(this).val());
+        });
+
+
+        $('input[type="radio"]').click(function(){
+                if ($(this).is(':checked'))
+                   selectOne($(this).attr("name"),$(this).val());
+        }).css("width","24px").css("height","21px");
+	$('input[type="checkbox"]').click(function(){
+                let num=$(this).attr("name");
+                let answer="";
+                $("input[type=checkbox][name="+num+"]").each(function(){
+                        if ($(this).is(':checked'))
+                                answer+=$(this).val();
+                });
+                selectMulti(num,answer);
+        }).css("width","24px").css("height","21px");
+	
+  });
+  </script>   
+
+
+  <script>
+	  if($('#copyin')[0]!= undefined ){
+
+		    var clipboardin=new Clipboard($('#copyin')[0]);
+		    clipboardin.on('success', function(e){
+		      $("#copyin").text("复制成功!"); 
+		          setTimeout(function () {$("#copyin").text("复制"); }, 1500);    
+		      console.log(e);
+		    });
+		    clipboardin.on('error', function(e){
+		      $("#copyin").text("复制失败!"); 
+		          setTimeout(function () {$("#copyin").text("复制"); }, 1500);
+		      console.log(e);
+		    });
+	  }
+	  if($('#copyout')[0]!= undefined ){
+
+		    var clipboardout=new Clipboard($('#copyout')[0]);
+		    clipboardout.on('success', function(e){
+		      $("#copyout").text("复制成功!"); 
+		          setTimeout(function () {$("#copyout").text("复制"); }, 1500);    
+		      console.log(e);
+		    });
+		    clipboardout.on('error', function(e){
+		      $("#copyout").text("复制失败!"); 
+		          setTimeout(function () {$("#copyout").text("复制"); }, 1500);
+		      console.log(e);
+		    });
+	  }
+
+  </script>
+<!--not cached-->

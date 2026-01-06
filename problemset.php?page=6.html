@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>问题 - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>            <!-- 问题 -->
+            <a class="item "
+                href="problemset.php.html"><i class="list icon"></i>问题 </a>
+            <!-- 来源/分类 -->
+            <a class="item "
+                href="category.php.html"><i class="globe icon"></i>来源/分类</a>
+            <!-- 竞赛/作业 -->
+            <a class="item " href="contest.php%3Fmy.html" ><i
+                    class="trophy icon"></i> 竞赛&作业</a>
+            <!-- 状态 -->
+            <a class="item " href="http://202.117.179.201/status.php"><i
+                    class="tasks icon"></i>状态</a>
+            <!-- 排名 -->
+            <a class="desktop-only item  "
+                href="http://202.117.179.201/ranklist.php"><i class="signal icon"></i> 排名</a>
+            <!--<a class="item " href="/discussion/global"><i class="comments icon"></i> 讨论</a>-->
+            <!-- 近期比赛 -->    
+            <!-- 常见问答 -->
+            <a class="desktop-only item " href="faqs.php.html"><i
+                    class="help circle icon"></i> 常见问答</a>
+            <!-- 讨论板 -->
+                                                  <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+<div class="padding">
+
+  <div class="ui grid" style="margin-bottom: 10px; ">
+    <div class="row" style="white-space: nowrap; ">
+      <div class="seven wide column">
+          <form action="problemset.php%3Fpage=6.html" method="get">
+            <div class="ui search" style="width: 280px; height: 28px; margin-top: -5.3px;float:left ">
+              <div class="ui left icon input" style="width: 100%; ">
+                <input class="prompt" style="width: 100%; " type="text" placeholder=" 标题 …" name="search"
+		       value=""
+                >
+
+                <i class="search icon"></i>
+              </div>
+              <div class="results" style="width: 100%; "></div>
+            </div>
+          </form>
+
+          <form action="http://202.117.179.201/problem.php" method="get">
+            <div class="ui search" style="width: 120px; height: 28px; margin-top: -5.3px; ">
+              <div class="ui icon input" style="width: 100%; ">
+                <input class="prompt" style="width: 100%; " type="text" value="" placeholder="ID" name="id">
+                <i class="search icon"></i>
+              </div>
+              <div class="results" style="width: 100%; "></div>
+            </div>
+          </form>
+
+      </div>
+
+
+      <div class="nine wide right aligned column">
+     
+        <div class="ui toggle checkbox" id="show_tag">
+          <style id="show_tag_style"></style>
+          <script>
+          if (localStorage.getItem('show_tag') != '0') {
+            document.write('<input type="checkbox" checked>');
+            document.getElementById('show_tag_style').innerHTML = '.show_tag_controled { white-space: nowrap; overflow: hidden; }';
+          } else {
+            document.write('<input type="checkbox">');
+            document.getElementById('show_tag_style').innerHTML = '.show_tag_controled { width: 0; white-space: nowrap; overflow: hidden; }';
+          }
+          </script>
+
+          <script>
+          $(function () {
+            $('#show_tag').checkbox('setting', 'onChange', function () {
+              let checked = $('#show_tag').checkbox('is checked');
+              localStorage.setItem('show_tag', checked ? '1' : '0');
+              if (checked) {
+                document.getElementById('show_tag_style').innerHTML = '.show_tag_controled { white-space: nowrap; overflow: hidden; }';
+              } else {
+                document.getElementById('show_tag_style').innerHTML = '.show_tag_controled { width: 0; white-space: nowrap; overflow: hidden; }';
+              }
+            });
+          });
+          </script>
+          <label>显示分类标签</label>
+          
+        </div>
+        <div style="margin-left: 10px; display: inline-block; ">
+               <a style="margin-left: 10px; " href="category.php.html" class="ui labeled icon mini green button"><i class="plus icon"></i> 所有标签</a>
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+<div style="margin-bottom: 30px; ">
+    
+    <div style="text-align: center; ">
+  <div class="ui pagination menu" style="box-shadow: none; ">
+    <a class="icon item" href="problemset.php%3Fpage=5.html" id="page_prev">  
+      <i class="left chevron icon"></i>
+    </a>
+    <a class="item" href="problemset.php%3Fpage=1.html">1</a><a class="item" href="problemset.php%3Fpage=2.html">2</a><a class="item" href="problemset.php%3Fpage=3.html">3</a><a class="item" href="problemset.php%3Fpage=4.html">4</a><a class="item" href="problemset.php%3Fpage=5.html">5</a><a class="active item" href="problemset.php%3Fpage=6.html">6</a><a class="item" href="problemset.php%3Fpage=7.html">7</a><a class="item" href="problemset.php%3Fpage=8.html">8</a><a class="item" href="problemset.php%3Fpage=9.html">9</a><a class="item" href="problemset.php%3Fpage=10.html">10</a>    <a class=" icon item" href="problemset.php%3Fpage=7.html" id="page_next">
+    <i class="right chevron icon"></i>
+    </a>  
+  </div>
+</div>
+</div>
+
+
+  <table class="ui very basic center aligned table">
+    <thead>
+      <tr>
+
+                  <th class="one wide">状态</th>
+                <th class="one wide">题目编号</th>
+        <th class="left aligned">标题</th>
+        <th class="one wide">解决/提交</th>
+        
+        <th class="one wide">通过率</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="status"><i class="icon"></i></span></td><td><b>1268</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1268.html">Binary Numbers</a><div class="show_tag_controled" style="float: right; "><div pid='1268' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1268&amp;jresult=4">6/9</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="66.667" aria-valuemin="0" aria-valuemax="100" style="width:66.667%;">66.667%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1269</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1269.html">Climbing Worm</a><div class="show_tag_controled" style="float: right; "><div pid='1269' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1269&amp;jresult=4">4/6</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="66.667" aria-valuemin="0" aria-valuemax="100" style="width:66.667%;">66.667%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1270</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1270.html">Doubles</a><div class="show_tag_controled" style="float: right; "><div pid='1270' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1270&amp;jresult=4">2/2</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1271</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1271.html">Encoding</a><div class="show_tag_controled" style="float: right; "><div pid='1271' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1271&amp;jresult=4">1/1</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1272</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1272.html">连续相邻</a><div class="show_tag_controled" style="float: right; "><div pid='1272' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1272&amp;jresult=4">4/33</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="12.121" aria-valuemin="0" aria-valuemax="100" style="width:12.121%;">12.121%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1273</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1273.html">连写数</a><div class="show_tag_controled" style="float: right; "><div pid='1273' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1273&amp;jresult=4">0/6</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1275</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1275.html">给力的字符串</a><div class="show_tag_controled" style="float: right; "><div pid='1275' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1275&amp;jresult=4">1/4</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%;">25%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1276</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1276.html">Number Steps</a><div class="show_tag_controled" style="float: right; "><div pid='1276' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1276&amp;jresult=4">1/2</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;">50%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1277</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1277.html">小孩分糖果</a><div class="show_tag_controled" style="float: right; "><div pid='1277' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1277&amp;jresult=4">6/66</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="9.091" aria-valuemin="0" aria-valuemax="100" style="width:9.091%;">9.091%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1278</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1278.html">下载视频</a><div class="show_tag_controled" style="float: right; "><div pid='1278' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1278&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1279</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1279.html">分数矩阵</a><div class="show_tag_controled" style="float: right; "><div pid='1279' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1279&amp;jresult=4">6/6</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1280</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1280.html">逆时针蛇形排列矩阵</a><div class="show_tag_controled" style="float: right; "><div pid='1280' fd='source' class='center'><a title='东软笔试' class='label label-info' style='display: inline-block;' href='http://202.117.179.201/problemset.php?search=%E4%B8%9C%E8%BD%AF%E7%AC%94%E8%AF%95'>东软笔试</a>&nbsp;</div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1280&amp;jresult=4">0/1</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1281</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1281.html">Play On Words</a><div class="show_tag_controled" style="float: right; "><div pid='1281' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1281&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1282</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1282.html">Color Me Less</a><div class="show_tag_controled" style="float: right; "><div pid='1282' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1282&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1283</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1283.html">Greedy Snake</a><div class="show_tag_controled" style="float: right; "><div pid='1283' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1283&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1284</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1284.html">Iphone</a><div class="show_tag_controled" style="float: right; "><div pid='1284' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1284&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1285</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1285.html">不要62</a><div class="show_tag_controled" style="float: right; "><div pid='1285' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1285&amp;jresult=4">5/16</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="31.25" aria-valuemin="0" aria-valuemax="100" style="width:31.25%;">31.25%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1286</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1286.html">C语言合法标识符</a><div class="show_tag_controled" style="float: right; "><div pid='1286' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1286&amp;jresult=4">4/22</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="18.182" aria-valuemin="0" aria-valuemax="100" style="width:18.182%;">18.182%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1287</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1287.html">一只小蜜蜂</a><div class="show_tag_controled" style="float: right; "><div pid='1287' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1287&amp;jresult=4">2/2</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1288</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1288.html">求素数和</a><div class="show_tag_controled" style="float: right; "><div pid='1288' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1288&amp;jresult=4">5/79</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="6.329" aria-valuemin="0" aria-valuemax="100" style="width:6.329%;">6.329%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1289</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1289.html">求矩阵乘积</a><div class="show_tag_controled" style="float: right; "><div pid='1289' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1289&amp;jresult=4">12/41</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="29.268" aria-valuemin="0" aria-valuemax="100" style="width:29.268%;">29.268%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1290</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1290.html">链表操作</a><div class="show_tag_controled" style="float: right; "><div pid='1290' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1290&amp;jresult=4">1/6</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="16.667" aria-valuemin="0" aria-valuemax="100" style="width:16.667%;">16.667%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1291</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1291.html">求平方和</a><div class="show_tag_controled" style="float: right; "><div pid='1291' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1291&amp;jresult=4">4/27</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="14.815" aria-valuemin="0" aria-valuemax="100" style="width:14.815%;">14.815%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1292</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1292.html">学分积</a><div class="show_tag_controled" style="float: right; "><div pid='1292' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1292&amp;jresult=4">1/1</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1293</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1293.html">B进制</a><div class="show_tag_controled" style="float: right; "><div pid='1293' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1293&amp;jresult=4">2/2</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1294</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1294.html">马路边的树</a><div class="show_tag_controled" style="float: right; "><div pid='1294' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1294&amp;jresult=4">3/6</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;">50%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1295</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1295.html">分法计数</a><div class="show_tag_controled" style="float: right; "><div pid='1295' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1295&amp;jresult=4">2/5</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%;">40%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1296</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1296.html">单词的缩略表示</a><div class="show_tag_controled" style="float: right; "><div pid='1296' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1296&amp;jresult=4">0/2</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1299</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1299.html">模运算</a><div class="show_tag_controled" style="float: right; "><div pid='1299' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1299&amp;jresult=4">1/11</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="9.091" aria-valuemin="0" aria-valuemax="100" style="width:9.091%;">9.091%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1300</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1300.html">切割电缆</a><div class="show_tag_controled" style="float: right; "><div pid='1300' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1300&amp;jresult=4">3/30</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">10%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1305</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1305.html">3n+1问题</a><div class="show_tag_controled" style="float: right; "><div pid='1305' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1305&amp;jresult=4">10/11</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="90.909" aria-valuemin="0" aria-valuemax="100" style="width:90.909%;">90.909%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1306</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1306.html">骨牌铺方格</a><div class="show_tag_controled" style="float: right; "><div pid='1306' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1306&amp;jresult=4">3/6</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;">50%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1307</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1307.html">生产奶酪</a><div class="show_tag_controled" style="float: right; "><div pid='1307' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1307&amp;jresult=4">0/2</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1308</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1308.html">红酒交易</a><div class="show_tag_controled" style="float: right; "><div pid='1308' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1308&amp;jresult=4">1/2</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;">50%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1309</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1309.html">数字三角形</a><div class="show_tag_controled" style="float: right; "><div pid='1309' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1309&amp;jresult=4">7/12</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="58.333" aria-valuemin="0" aria-valuemax="100" style="width:58.333%;">58.333%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1310</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1310.html">湖的计数</a><div class="show_tag_controled" style="float: right; "><div pid='1310' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1310&amp;jresult=4">3/9</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="33.333" aria-valuemin="0" aria-valuemax="100" style="width:33.333%;">33.333%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1311</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1311.html">排序</a><div class="show_tag_controled" style="float: right; "><div pid='1311' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1311&amp;jresult=4">4/18</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="22.222" aria-valuemin="0" aria-valuemax="100" style="width:22.222%;">22.222%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1312</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1312.html">Fibonacci Again</a><div class="show_tag_controled" style="float: right; "><div pid='1312' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1312&amp;jresult=4">3/11</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="27.273" aria-valuemin="0" aria-valuemax="100" style="width:27.273%;">27.273%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1313</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1313.html">字母排列</a><div class="show_tag_controled" style="float: right; "><div pid='1313' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1313&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1314</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1314.html">Humble Numbers</a><div class="show_tag_controled" style="float: right; "><div pid='1314' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1314&amp;jresult=4">1/1</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1315</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1315.html">钓鱼</a><div class="show_tag_controled" style="float: right; "><div pid='1315' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1315&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1316</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1316.html">泊松分酒</a><div class="show_tag_controled" style="float: right; "><div pid='1316' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1316&amp;jresult=4">1/10</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">10%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1318</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1318.html">传球游戏</a><div class="show_tag_controled" style="float: right; "><div pid='1318' fd='source' class='center'><a title='NOIP2008' class='label label-primary' style='display: inline-block;' href='http://202.117.179.201/problemset.php?search=NOIP2008'>NOIP2008</a>&nbsp;</div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1318&amp;jresult=4">0/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1319</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1319.html">发奖学金</a><div class="show_tag_controled" style="float: right; "><div pid='1319' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1319&amp;jresult=4">2/3</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="66.667" aria-valuemin="0" aria-valuemax="100" style="width:66.667%;">66.667%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1320</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1320.html">我要找亲戚</a><div class="show_tag_controled" style="float: right; "><div pid='1320' fd='source' class='center'><a title='李xx提交整理' class='label label-success' style='display: inline-block;' href='http://202.117.179.201/problemset.php?search=%E6%9D%8Exx%E6%8F%90%E4%BA%A4%E6%95%B4%E7%90%86'>李xx提交整理</a>&nbsp;</div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1320&amp;jresult=4">1/7</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="14.286" aria-valuemin="0" aria-valuemax="100" style="width:14.286%;">14.286%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1321</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1321.html">不高兴的赵睿</a><div class="show_tag_controled" style="float: right; "><div pid='1321' fd='source' class='center'><a title='NOIP2004' class='label label-primary' style='display: inline-block;' href='http://202.117.179.201/problemset.php?search=NOIP2004'>NOIP2004</a>&nbsp;</div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1321&amp;jresult=4">5/7</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="71.429" aria-valuemin="0" aria-valuemax="100" style="width:71.429%;">71.429%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1322</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1322.html">魔法水晶塔</a><div class="show_tag_controled" style="float: right; "><div pid='1322' fd='source' class='center'><a title='某校NOIP模拟题' class='label label-info' style='display: inline-block;' href='http://202.117.179.201/problemset.php?search=%E6%9F%90%E6%A0%A1NOIP%E6%A8%A1%E6%8B%9F%E9%A2%98'>某校NOIP模拟题</a>&nbsp;</div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1322&amp;jresult=4">2/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1323</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1323.html">火烧连营</a><div class="show_tag_controled" style="float: right; "><div pid='1323' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1323&amp;jresult=4">0/6</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1324</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1324.html">生气的老师</a><div class="show_tag_controled" style="float: right; "><div pid='1324' fd='source' class='center'></div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1324&amp;jresult=4">1/1</a></td><td><div class="progress" style="margin-bottom:-20px;"><div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;">100%</div></div></td></tr><tr><td><span class="status"><i class="icon"></i></span></td><td><b>1325</b></td><td class="left aligned"><a style="vertical-align: middle; " href="problem.php%3Fid=1325.html">传染病防治</a><div class="show_tag_controled" style="float: right; "><div pid='1325' fd='source' class='center'><a title='NOIP2003' class='label label-info' style='display: inline-block;' href='http://202.117.179.201/problemset.php?search=NOIP2003'>NOIP2003</a>&nbsp;</div ></div></td><td><a href="http://202.117.179.201/status.php?problem_id=1325&amp;jresult=4">1/0</a></td><td><div class="progress" style="margin-bottom:-20px; "><div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0.000%</div></div></td></tr>
+
+
+    </tbody>
+  </table><br>
+  <div style="margin-bottom: 30px; ">
+    
+    <div style="text-align: center; ">
+  <div class="ui pagination menu" style="box-shadow: none; ">
+    <a class="icon item" href="problemset.php%3Fpage=5.html" id="page_prev">  
+      <i class="left chevron icon"></i>
+    </a>
+    <a class="item" href="problemset.php%3Fpage=1.html">1</a><a class="item" href="problemset.php%3Fpage=2.html">2</a><a class="item" href="problemset.php%3Fpage=3.html">3</a><a class="item" href="problemset.php%3Fpage=4.html">4</a><a class="item" href="problemset.php%3Fpage=5.html">5</a><a class="active item" href="problemset.php%3Fpage=6.html">6</a><a class="item" href="problemset.php%3Fpage=7.html">7</a><a class="item" href="problemset.php%3Fpage=8.html">8</a><a class="item" href="problemset.php%3Fpage=9.html">9</a><a class="item" href="problemset.php%3Fpage=10.html">10</a>    <a class=" icon item" href="problemset.php%3Fpage=7.html" id="page_next">
+    <i class="right chevron icon"></i>
+    </a>  
+  </div>
+</div>
+<script type="text/javascript" src="include/jquery.tablesorter.js"></script>
+
+</div>
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>
+   
+<!--not cached-->

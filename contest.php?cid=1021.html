@@ -1,0 +1,277 @@
+ 
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>Contest1021 - 16级理学院计算专业《数据结构》实习题目 - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>                        <a id="" class="item" href="contest.php.html" ><i class="arrow left icon"></i>竞赛&作业列表</a>
+            <a id="" class="item active" href="contest.php%3Fcid=1021.html" ><i class="list icon"></i>问题列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/status.php?cid=1021" ><i class="tasks icon"></i>状态列表</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank.php?cid=1021" ><i class="numbered list icon"></i>排名</a>
+            <a id="" class="item active" href="http://202.117.179.201/contestrank-oi.php?cid=1021" ><i class="child icon"></i>OI-排名</a>
+            
+                                                        <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+<style>
+.ui.label.pointing.below.left::before {
+    left: 12%;
+}
+
+.ui.label.pointing.below.right::before {
+    left: 88%;
+}
+
+.ui.label.pointing.below.left {
+    margin-bottom: 0;
+}
+
+.ui.label.pointing.below.right {
+    margin-bottom: 0;
+    float: right;
+}
+
+#back_to_contest {
+    display: none;
+}
+</style>
+
+<div class="padding">
+    <h1>Contest1021 - 16级理学院计算专业《数据结构》实习题目</h1>
+    <div class="ui pointing below left label">2017-09-18 20:00:00</div>
+    <div class="ui pointing below right label">2017-12-24 00:00:00</div>
+
+    <div id="timer-progress" class="ui tiny indicating progress success" data-percent="50">
+        <div class="bar" style="width: 0%; transition-duration: 300ms;"></div>
+    </div>
+
+    <div class="ui grid">
+        <div class="row">
+            <div class="column">
+                <div class="ui buttons">
+                    <a class="ui small blue button" href="http://202.117.179.201/contestrank.php?cid=1021">ACM名次</a>
+                    <a class="ui small yellow button" href="http://202.117.179.201/contestrank-oi.php?cid=1021">OI名次</a>
+                    <a class="ui small positive button" href="http://202.117.179.201/status.php?cid=1021">状态</a>
+                    <!-- <a class="ui small pink button" href="conteststatistics.php?cid=1021">统计</a> -->
+                </div>
+                <div class="ui buttons right floated">
+
+                    <span class="ui small button grey">已结束</span>                    <span class="ui small button blue">公开</span>        
+                    <span class="ui small button">当前时间:<span id=nowdate>2025-12-13 21:33:44</span></span>
+                </div>
+            </div>
+        </div>
+                <div class="row">
+            <div class="column">
+                <table class="ui selectable celled table">
+                    <thead>
+                        <tr>
+                            <th class="one wide" style="text-align: center">
+                                    状态                            </th>
+                            <th class="two wide" style="text-align: center">题目编号</th>
+                            <th>标题</th>
+                            <!-- <th></th>  -->
+                            <th class="one wide center aligned">正确</th>
+                            <th class="one wide center aligned">提交量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                   
+                        <tr><td></td><td><a href='problem.php%3Fid=1397.html'>A</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=0.html'>顺序表上的基本操作实现</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1398.html'>B</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=1.html'>链表上的基本操作实现</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1399.html'>C</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=2.html'>学生信息管理</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1400.html'>D</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=3.html'>约瑟夫环</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1445.html'>E</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=4.html'>迷宫问题</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1446.html'>F</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=5.html'>括号匹配问题</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1447.html'>G</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=6.html'>患者到医院看病事件模拟</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1448.html'>H</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=7.html'>迷宫的最短路径</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1449.html'>I</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=8.html'>借助栈实现单链表逆置</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1450.html'>J</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=9.html'>由顺序方式存储的完全二叉树进行重建</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1451.html'>K</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=10.html'>从先序中序重建二叉树输出层序后序</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1452.html'>L</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=11.html'>由二叉树的中序层序重建二叉树</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1453.html'>M</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=12.html'>判别平衡二叉树</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1454.html'>N</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=13.html'>树的括号表示法</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1455.html'>O</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=14.html'>Huffman树</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1456.html'>P</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=15.html'>图的深度和广度优先遍历</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1457.html'>Q</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=16.html'>拓扑排序</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1458.html'>R</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=17.html'>Prim和Kruskal最小生成树</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1459.html'>S</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=18.html'>迷宫最最短路径(采用迪杰斯特拉算法求解)</a></td><td>0</td><td>0</td></tr><tr><td></td><td><a href='problem.php%3Fid=1460.html'>T</a></td><td><a href='problem.php%3Fcid=1021&amp;pid=19.html'>堆排序</a></td><td>0</td><td>0</td></tr>                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function() {
+    $('#timer-progress').progress({
+        value: Date.now() / 1000 - 1505736000,
+        total: 8308800    });
+});
+
+$(function() {
+    setInterval(function() {
+        $('#timer-progress').progress({
+            value: Date.now() / 1000 - 1505736000,
+            total: 8308800        });
+    }, 5000);
+});
+</script>
+<script src="include/sortTable.js"></script>
+<script>
+var diff = new Date("2025/12/13 21:33:44").getTime() - new Date().getTime();
+//alert(diff);
+function clock() {
+    var x, h, m, s, n, xingqi, y, mon, d;
+    var x = new Date(new Date().getTime() + diff);
+    y = x.getYear() + 1900;
+    if (y > 3000) y -= 1900;
+    mon = x.getMonth() + 1;
+    d = x.getDate();
+    xingqi = x.getDay();
+    h = x.getHours();
+    m = x.getMinutes();
+    s = x.getSeconds();
+    n = y + "-" + mon + "-" + d + " " + (h >= 10 ? h : "0" + h) + ":" + (m >= 10 ? m : "0" + m) + ":" + (s >= 10 ? s :
+        "0" + s);
+    //alert(n);
+    document.getElementById('nowdate').innerHTML = n;
+    setTimeout("clock()", 1000);
+}
+clock();
+    // show count down if $OJ_CONTEST_LIMIT_KEYWORD triggered 
+
+</script>
+
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>
+<!--not cached-->

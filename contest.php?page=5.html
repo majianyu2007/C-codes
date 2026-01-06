@@ -1,0 +1,238 @@
+ 
+<!DOCTYPE html>
+<html lang="cn" style="position:fixed; width: 100%; overflow: hidden; ">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <title>竞赛&作业 - NWAFU-OJ</title>
+    <link rel="stylesheet" href="template/syzoj/css/style.css">
+<link rel="stylesheet" href="template/syzoj/css/tomorrow.css">
+<link rel="stylesheet" href="template/syzoj/css/semantic.min.css%3Fv=0.1.css">
+<link rel="stylesheet" href="template/syzoj/css/katex.min.css">
+<link href="template/syzoj/css/morris.min.css" rel="stylesheet">
+<link href="template/syzoj/css/FiraMono.css" rel="stylesheet">
+<link href="template/syzoj/css/latin.css" rel="stylesheet">
+<link href="template/syzoj/css/Exo.css" rel="stylesheet">
+        <style>
+@media (max-width: 991px) {
+        .mobile-only {
+                display:block !important;
+        }
+
+        .desktop-only {
+            display:none !important;
+        }
+}
+
+/**毛玻璃背景*/
+.padding {
+  background: rgba(255,255,255,0.6);
+  box-shadow: inset 5px 5px 20px 0px rgba(255,255,255,0.1);
+  border-radius: 20px;
+      box-shadow: 10px -10px 20px rgb(255 255 255 / 20%), -10px 10px 20px rgb(255 255 255 / 10%);
+  backdrop-filter: blur(7px);
+  border-bottom:3px solid rgba(255,255,255,0.4);
+  border-right: 3px solid rgba(255,255,255,0.4);
+  border-left: 3px solid rgba(255, 255, 255, 0.4);
+  /*filter: brightness(1.1);*/
+}
+
+</style>
+    <script src="include/jquery-latest.js"></script>
+
+<!-- Scripts -->
+<script>
+    console.log('\n %c HUSTOJ %c https://github.com/zhblue/hustoj %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', '');
+    console.log('\n %c Theme By %c Baoshuo ( @renbaoshuo ) %c https://baoshuo.ren %c\n', 'color: #fadfa3; background: #000000; padding:5px 0;', 'background: #fadfa3; padding:5px 0;', 'background: #ffbf33; padding:5px 0;', '');
+    console.log('\n GitHub Homepage: https://github.com/zhblue/hustoj \n Document: https://zhblue.github.io/hustoj \n Bug report URL: https://github.com/zhblue/hustoj/issues \n \n%c ★ Please give us a star on GitHub! ★ %c \n', 'color: red;', '')
+</script>
+</head>
+
+   
+<body id="MainBg-C" style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay;">
+    <div id="page-header" class="ui fixed borderless menu" style="position: fixed; height: 49px; z-index:99999">
+        <div id="menu" class="ui stackable mobile ui container computer" style="margin-left:auto;margin-right:auto;">
+            <a class="header item"  href="index.html"><span
+                    style="font-family: 'Exo 2'; font-size: 1.5em; font-weight: 600; ">NWAFU-OJ</span></a>
+            
+          <a class="desktop-only item" href="index.html"><i class="home icon"></i>主页</a>            <!-- 问题 -->
+            <a class="item "
+                href="problemset.php.html"><i class="list icon"></i>问题 </a>
+            <!-- 来源/分类 -->
+            <a class="item "
+                href="category.php.html"><i class="globe icon"></i>来源/分类</a>
+            <!-- 竞赛/作业 -->
+            <a class="item " href="contest.php%3Fmy.html" ><i
+                    class="trophy icon"></i> 竞赛&作业</a>
+            <!-- 状态 -->
+            <a class="item " href="http://202.117.179.201/status.php"><i
+                    class="tasks icon"></i>状态</a>
+            <!-- 排名 -->
+            <a class="desktop-only item  "
+                href="http://202.117.179.201/ranklist.php"><i class="signal icon"></i> 排名</a>
+            <!--<a class="item " href="/discussion/global"><i class="comments icon"></i> 讨论</a>-->
+            <!-- 近期比赛 -->    
+            <!-- 常见问答 -->
+            <a class="desktop-only item " href="faqs.php.html"><i
+                    class="help circle icon"></i> 常见问答</a>
+            <!-- 讨论板 -->
+                                                  <div class="right menu">
+                                <a href="http://202.117.179.201/userinfo.php?user=2025013665"
+                    style="color: inherit; ">
+                    <div class="ui simple dropdown item">
+                        2025013665(0x49204c6f76652055)                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                                <a class="item" href="http://202.117.179.201/modifypage.php"><i class="edit icon"></i>设置注册信息</a>
+                                <a class="item" href="http://202.117.179.201/portal.php"><i class="tasks icon"></i>待完成的任务</a>
+                                                                                                <a class="item" href="http://202.117.179.201/logout.php"><i class="power icon"></i>注销</a>
+                        </div>
+                    </div>
+                </a>
+                            </div>
+        </div>
+    </div>
+    <div style="margin-top: 28px; ">
+        <div id="main" class="ui main container">
+<div class="padding">
+<div class="ui grid" style="margin-bottom: 10px; ">
+    <div class="row" style="white-space: nowrap; ">
+      <div class="seven wide column">
+          <form method=post action="contest.php.html" >
+            <div class="ui search" style="width: 280px; height: 28px; margin-top: -5.3px; ">
+              <div class="ui left icon input" style="width: 100%; ">
+                <input class="prompt" style="width: 100%; " type="text" value="" placeholder=" 作业比赛名称 …" name="keyword">
+                <i class="search icon"></i>
+                <a  class="ui button"  href="contest.php.html" >显示所有作业比赛</a>
+              </div>
+              <div class="results" style="width: 100%; "></div>
+            </div>
+          </form>
+
+      </div>
+
+      <div class="nine wide right aligned column">
+
+      </div>
+    </div>
+  </div>
+
+      <div style="margin-bottom: 30px; ">
+    
+    <div style="text-align: center; ">
+  <div class="ui pagination menu" style="box-shadow: none; ">
+    <a class="icon item" href="contest.php%3Fpage=4.html" id="page_prev">
+      <i class="left chevron icon"></i>
+    </a>
+    <a class="item" href="contest.php%3Fpage=1.html">1</a><a class="item" href="contest.php%3Fpage=2.html">2</a><a class="item" href="contest.php%3Fpage=3.html">3</a><a class="item" href="contest.php%3Fpage=4.html">4</a><a class="active item" href="contest.php%3Fpage=5.html">5</a>    <a class="disabled  icon item" href="contest.php%3Fpage=5.html" id="page_next">
+    <i class="right chevron icon"></i>
+    </a>
+  </div>
+</div>
+
+</div>
+    <table class="ui very basic center aligned table">
+      <thead>
+        <tr>
+          <th>作业比赛编号</th>
+          <th>作业比赛名称</th>
+          <th>时间</th>
+          <th>开放</th>
+          <th>创建人</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr><td>	1016</td><td>	<a href='contest.php%3Fcid=1016.html'>理学院《面向对象程序设计》实习题目</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2018-01-20 00:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1015</td><td>	<a href='contest.php%3Fcid=1015.html'>面向对象程序设计C++</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-11-30 20:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1014</td><td>	<a href='contest.php%3Fcid=1014.html'>面向对象程序设计C++</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-11-30 20:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1013</td><td>	<a href='contest.php%3Fcid=1013.html'>2017年春《面向对象程序设计》补考编程题</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-09-08 18:40:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1012</td><td>	<a href='contest.php%3Fcid=1012.html'>2016-2017学年第二学期《面向对象程序设计》期末考试编程题</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-07-04 21:35:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1011</td><td>	<a href='contest.php%3Fcid=1011.html'>《c++程序设计》期末考试编程题</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-06-23 21:30:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1010</td><td>	<a href='contest.php%3Fcid=1010.html'>2016－2017学年 第2学期《面向对象程序设计》课程期中测试编程题</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-06-13 21:30:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1008</td><td>	<a href='contest.php%3Fcid=1008.html'>OOP实习（16级信管）</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-07-06 00:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1007</td><td>	<a href='contest.php%3Fcid=1007.html'>OOP实习（16级电商）</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-07-06 00:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1006</td><td>	<a href='contest.php%3Fcid=1006.html'>OOP实习（16级软件工程）</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-07-06 00:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1005</td><td>	<a href='contest.php%3Fcid=1005.html'>OOP实习（16级计算机）</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-07-06 00:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1004</td><td>	<a href='contest.php%3Fcid=1004.html'>OOP实习</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-06-27 16:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1003</td><td>	<a href='contest.php%3Fcid=1003.html'>2016—2017学年第一学期《C语言程序设计》补考</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-02-23 22:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1002</td><td>	<a href='contest.php%3Fcid=1002.html'>2016—2017学年第一学期《C语言程序设计》期末考试</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-01-06 22:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr><tr><td>	1001</td><td>	<a href='contest.php%3Fcid=1001.html'>2016-2017年C语言期末考试模拟题</a></td><td>	<span class=text-muted>已结束</span> <span class=text-muted>2017-01-06 20:00:00</span></td><td>	<span class=text-primary>公开</span></td><td>	admin</td></tr>          
+          
+
+          <!-- <td><a href="<%= syzoj.utils.makeUrl(['contest', contest.id]) %>"><%= contest.title %> <%- tag %></a></td>
+          <td><%= syzoj.utils.formatDate(contest.start_time) %></td>
+          <td><%= syzoj.utils.formatDate(contest.end_time) %></td>
+          <td class="font-content"><%- contest.subtitle %></td> -->
+      </tbody>
+    </table>
+</div>
+
+</div>
+</div>
+<script src="template/syzoj/css/semantic.min.js"></script>
+<script src="template/syzoj/css/Chart.min.js"></script>
+    <style>
+    .footer {
+        line-height: 1.4285em;
+        font-family: "Lato", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "Droid Sans Fallback", "sans-serif";
+        box-sizing: inherit;
+        padding: 0 !important;
+        border: none !important;
+        color: #888;
+        font-size: 1rem;
+        margin: 35px 0 14px !important;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        background: none transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    </style>
+    
+<!--  to enable mathjax in hustoj:
+svn export http://github.com/mathjax/MathJax/trunk /home/judge/src/web/mathjax
+<script type="text/javascript"
+  src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+or
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+-->
+<script src="template/bs3/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  var msg="<marquee style='margin-top:-10px;margin-bottom:10px' id=broadcast direction='left' scrollamount=3 scrolldelay=50 onMouseOver='this.stop()'"+
+      " onMouseOut='this.start()' class='padding' >"+""+"</marquee>";
+    $("form").append("<div id='csrf' />");
+  $("#csrf").load("csrf.php");
+  let left=window.innerWidth-parseInt($("#menu").css("width")) - 100;
+  left/=2;
+  $("#menu").attr("style","margin-left:auto;margin-right:auto;");
+  var screen_width = window.screen.width;
+  var screen_height = window.screen.height;
+  if(screen_width < 800) $("#main").attr("class","");
+  if(screen_width < 800) $("#MainBg-C").attr("class","");
+
+ $('body').css('background','url(/image/background.jpg)').css('background-repeat','no-repeat').css('background-size','100%'); 
+  $("tr").mouseover(function(){$(this).addClass("active")});
+  $("tr").mouseout(function(){$(this).removeClass("active")})
+
+});
+
+$(".hint pre").each(function(){
+        var plus="<span class='glyphicon glyphicon-plus'>点击查看剧透级题解</span>";
+        var content=$(this);
+        $(this).before(plus);
+        $(this).prev().click(function(){
+                content.toggle();
+        });
+        $(this).hide();
+});
+
+
+  console.log("If you want to change the appearance of the web pages, make a copy of bs3 under template directory.\nRename it to whatever you like, and change the $OJ_TEMPLATE value in db_info.inc.php\nAfter that modify files under your own directory .\n");
+  console.log("To enable mathjax in hustoj, check line 15 in /home/judge/src/web/template/bs3/js.php");
+
+</script>
+
+    <div class="footer">
+    </div>
+        <iframe id="sk" src="session.php.html" height=0px width=0px ></iframe>
+<link href="template/syzoj/css/white.css" rel="stylesheet">
+
+</body>
+
+</html>
+<!--not cached-->
