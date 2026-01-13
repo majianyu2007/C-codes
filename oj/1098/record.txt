@@ -1,0 +1,11 @@
+Apple 50.5 20.3
+Banana 30 10.2
+Orange 100 80.6
+Cherry 20.7 5.7
+Grape 50.3 28.4
+Mango 40 32.3
+WaterMelon 500.9 328.5
+Pear 60 49.4
+Strawberry 10 6.4
+Kiwi 50.9 32.7
+DragonFruit 40.6 25.3
